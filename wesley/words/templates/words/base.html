@@ -1,0 +1,48 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="author" content="Song_H_G">
+
+        <title>Wesley</title>
+        <link href="{% static 'words/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+        <link href="{% static 'words/css/simple-sidebar.css' %}" rel="stylesheet">
+        <link rel="stylesheet" href="{% static 'words/css/index.css' %}">
+        {% block head %}
+        {% endblock %}
+    </head>
+
+    <body>
+        <div class="d-flex" id="wrapper">
+            <div id="page-content-wrapper">
+                <nav class="navbar navbar-light bg-light">
+                    <a class="navbar-brand" href="/">
+                        <img src="https://contents.sixshop.com/uploadedFiles/70114/default/image_1533798102474.png"
+                            width="130" class="d-inline-block" alt="">
+                    </a>
+                    {% comment %} <ul class="navbar-nav">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="#">Make Wordbook</a>
+                        </li>
+                    </ul> {% endcomment %}
+                    <form class="form-inline my-2 my-lg-0" action="/search/" method="get">
+                        <input class="form-control mr-sm-2" type="search" name="wb" placeholder="제목으로 검색"
+                            aria-label="Search">
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit"
+                            value="Search">검색</button>
+                    </form>
+                </nav>
+                {% block content %}
+                {% endblock %}
+            </div>
+        </div>
+        {% block script %}
+        {% endblock %}
+        <script src="{% static 'words/vendor/jquery/jquery.min.js' %}"></script>
+        <script src="{% static 'words/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+    </body>
+
+</html>

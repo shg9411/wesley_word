@@ -1,0 +1,259 @@
+{% extends 'words/base.html' %}
+{% load static %}
+
+{% block content %}
+<section class="pricing py-5">
+    <div class="container-fluid">
+        <div class="row">
+            <div id="id" style="display:none">{{pk}}</div>
+            {% if subject %}
+            <div class="col-lg-4">
+                <div class="card mb-5 mb-lg-0">
+                    <div class="card-body">
+                        <h3 class="text-uppercase text-center" id="subMean" style="display:none;">
+                            {% if subject.mean %}{{subject.mean}}{% endif %}</h3>
+                        <hr>
+                        <ul class="fa-ul" id="subField">
+                            <img src="/media/{{subject.word}}.jpg"
+                                style='height: 100%; width: 100%; object-fit: contain' />
+                        </ul>
+                        <ul>
+                            <input type="button" value="이전" id="sPrev" class="btn btn-primary">
+                            <input type="button" value="다음" id="sNext" class="btn btn-primary">
+                            <input type="button" value="on/off" id="toggle" class="btn btn-primary" onclick="funcS()">
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+            {% if verb %}
+            <div class="col-lg-4">
+                <div class="card mb-5 mb-lg-0">
+                    <div class="card-body">
+                        <h3 class="text-uppercase text-center" id="verbMean" style="display:none;">
+                            {% if verb.mean %}{{verb.mean}}{% endif %}</h3>
+                        <hr>
+                        <ul class="fa-ul" id="verbField">
+                            <img src="/media/{{verb.word}}.jpg"
+                                style='height: 100%; width: 100%; object-fit: contain' />
+                        </ul>
+                        <ul>
+                            <input type="button" value="이전" id="vPrev" class="btn btn-primary">
+                            <input type="button" value="다음" id="vNext" class="btn btn-primary">
+                            <input type="button" value="on/off" id="toggle" class="btn btn-primary" onclick="funcV()">
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+            {% if obj %}
+            <div class="col-lg-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h3 class="text-uppercase text-center" id="objMean" style="display:none;">
+                            {% if obj.mean %}{{obj.mean}}{% endif %}</h3>
+                        <hr>
+                        <ul class="fa-ul" id="objField">
+                            <img src="/media/{{obj.word}}.jpg" style='height: 100%; width: 100%; object-fit: contain' />
+                        </ul>
+                        <ul>
+                            <input type="button" value="이전" id="oPrev" class="btn btn-primary">
+                            <input type="button" value="다음" id="oNext" class="btn btn-primary">
+                            <input type="button" value="on/off" id="toggle" class="btn btn-primary" onclick="funcO()">
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</section>
+{% endblock %}
+{% block script %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script type="text/javascript">
+    var subId = 0;
+    var objId = 0;
+    var verbId = 0;
+    var pk = document.getElementById("id").textContent;
+    $(document).ready(function () {
+        $('#sPrev').click(function () {
+            $.ajax({
+                url: '/getPrevSub/',
+                data: {
+                    id: subId,
+                    pk: pk,
+                },
+                success: function (data) {
+                    data = data.split(',');
+                    imgString = "<img src =" + data[0] +
+                        " style='height: 100%; width: 100%; object-fit: contain' />";
+                    $('#subField').html(imgString);
+                    subId -= 1;
+                    if (data.length > 1) {
+                        $('#subMean').html(data[1]);
+                    } else {
+                        $('#subMean').html();
+                    }
+                },
+                error: function () {
+                    alert("첫번째 단어입니다.");
+                }
+            });
+        });
+
+        $('#sNext').click(function () {
+            $.ajax({
+                url: '/getNextSub/',
+                data: {
+                    id: subId,
+                    pk: pk,
+                },
+                success: function (data) {
+                    data = data.split(',');
+                    imgString = "<img src =" + data[0] +
+                        " style='height: 100%; width: 100%; object-fit: contain' />";
+                    $('#subField').html(imgString);
+                    subId += 1;
+                    if (data.length > 1) {
+                        $('#subMean').html(data[1]);
+                    } else {
+                        $('#subMean').html('');
+                    }
+                },
+                error: function () {
+                    alert("마지막 단어입니다.");
+                }
+
+            });
+        });
+        //verb
+        $('#vPrev').click(function () {
+            $.ajax({
+                url: '/getPrevVerb/',
+                data: {
+                    id: verbId,
+                    pk: pk,
+                },
+                success: function (data) {
+                    data = data.split(',');
+                    imgString = "<img src =" + data[0] +
+                        " style='height: 100%; width: 100%; object-fit: contain' />";
+                    $('#verbField').html(imgString);
+                    verbId -= 1;
+                    if (data.length > 1) {
+                        $('#verbMean').html(data[1]);
+                    } else {
+                        $('#verbMean').html('');
+                    }
+                },
+                error: function () {
+                    alert("첫번째 단어입니다.");
+                }
+            });
+        });
+
+        $('#vNext').click(function () {
+            $.ajax({
+                url: '/getNextVerb/',
+                data: {
+                    id: verbId,
+                    pk: pk,
+                },
+                success: function (data) {
+                    data = data.split(',');
+                    imgString = "<img src =" + data[0] +
+                        " style='height: 100%; width: 100%; object-fit: contain' />";
+                    $('#verbField').html(imgString);
+                    verbId += 1;
+                    if (data.length > 1) {
+                        $('#verbMean').html(data[1]);
+                    } else {
+                        $('#verbMean').html('');
+                    }
+                },
+                error: function () {
+                    alert("마지막 단어입니다.");
+                }
+            });
+        });
+        //object
+        $('#oPrev').click(function () {
+            $.ajax({
+                url: '/getPrevObj/',
+                data: {
+                    id: objId,
+                    pk: pk,
+                },
+                success: function (data) {
+                    data = data.split(',');
+                    imgString = "<img src =" + data[0] +
+                        " style='height: 100%; width: 100%; object-fit: contain' />";
+                    $('#objField').html(imgString);
+                    objId -= 1;
+                    if (data.length > 1) {
+                        $('#objMean').html(data[1]);
+                    } else {
+                        $('#objMean').html('');
+                    }
+                },
+                error: function () {
+                    alert("첫번째 단어입니다.");
+                }
+            });
+        });
+
+        $('#oNext').click(function () {
+            $.ajax({
+                url: '/getNextObj/',
+                data: {
+                    id: objId,
+                    pk: pk,
+                },
+                success: function (data) {
+                    data = data.split(',');
+                    imgString = "<img src =" + data[0] +
+                        " style='height: 100%; width: 100%; object-fit: contain' />";
+                    $('#objField').html(imgString);
+                    objId += 1;
+                    if (data.length > 1) {
+                        $('#objMean').html(data[1]);
+                    } else {
+                        $('#objMean').html('');
+                    }
+                },
+                error: function () {
+                    alert("마지막 단어입니다.");
+                }
+            });
+        });
+    });
+
+    function funcS() {
+        var tmp = document.getElementById("subMean");
+        if (tmp.style.display === "none") {
+            tmp.style.display = "block";
+        } else {
+            tmp.style.display = "none";
+        }
+    }
+
+    function funcV() {
+        var tmp = document.getElementById("verbMean");
+        if (tmp.style.display === "none") {
+            tmp.style.display = "block";
+        } else {
+            tmp.style.display = "none";
+        }
+    }
+
+    function funcO() {
+        var tmp = document.getElementById("objMean");
+        if (tmp.style.display === "none") {
+            tmp.style.display = "block";
+        } else {
+            tmp.style.display = "none";
+        }
+    }
+</script>
+{% endblock %}
