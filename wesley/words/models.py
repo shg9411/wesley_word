@@ -25,12 +25,15 @@ class Word(models.Model):
 
 
 class sList(models.Model):
+    theme = models.CharField(max_length = 20)
     subject = models.ManyToManyField(Word)
 
 class vList(models.Model):
+    theme = models.CharField(max_length = 20)
     verb = models.ManyToManyField(Word)
 
 class oList(models.Model):
+    theme = models.CharField(max_length = 20)
     obj = models.ManyToManyField(Word)
 
 class WordBook(models.Model):
