@@ -16,6 +16,12 @@ class WordBookAdmin(admin.ModelAdmin):
     search_fields = ['title']
     ordering = ('title',)
 
+    fieldsets = [
+        ('Title', {'fields':['title']}),
+        ('List',{'fields':['subjects','verbs','objs']}),
+        ('Description',{'fields':['description']}),
+    ]
+
 @admin.register(models.sList)
 class sListAdmin(admin.ModelAdmin):
     list_per_page = 20
