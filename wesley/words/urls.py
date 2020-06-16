@@ -17,4 +17,4 @@ urlpatterns = [
     path('getPrevVerb/',views.getPrevVerb),
     path('getPrevSub/',views.getPrevSub),
     path('getPrevObj/',views.getPrevObj),
-] + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
+]+ static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

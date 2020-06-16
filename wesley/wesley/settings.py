@@ -19,10 +19,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY','am@#1cn2)7728j$s)phjv!jfj#z^#crjsa(8&p&g-0vx(xq96c')
+SECRET_KEY = '+!gmiyvgj5t)=j@bx6zaybioiplanx(f2r&3!+rkz$p76eh_dy'
 
-# SECURITY WARNING: don't run with debug turned on in production!
+
 DEBUG = False
 
 ALLOWED_HOSTS = ['*']
@@ -31,7 +30,8 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
-    'django.contrib.admin',
+'sslserver',    
+'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -76,8 +76,14 @@ WSGI_APPLICATION = 'wesley.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+	'ENGINE':'django.db.backends.sqlite3',
+	'NAME':os.path.join(BASE_DIR,'db.sqlite3'),
+#	'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#        'NAME': 'wesley',
+#	'USER':'postgres',
+#	'PASSWORD':'superadmin',
+#	'HOST':'www.funvoca.com',
+#	'PORT':'',
     }
 }
 
@@ -119,7 +125,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR,'static')
-
+STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
+
