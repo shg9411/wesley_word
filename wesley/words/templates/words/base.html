@@ -17,9 +17,8 @@
     </head>
 
     <body>
-        <div class="d-flex" id="wrapper">
-            <div id="page-content-wrapper">
-                <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+                <div class="navbar navbar-expand-lg navbar-dark bg-primary">
+<div class="container-fluid">
                     <a class="navbar-brand" href="https://wesley.co.kr/">
 Wesley
                     </a>
@@ -44,13 +43,12 @@ Home</a>
                             value="Search">Search</button>
                     </form>
 </div>
-                </nav>
-                {% block content %}
-                {% endblock %}
-            </div>
-        </div>
-        {% block script %}
-        {% endblock %}
+</div>
+                </div>
+{% block content %}
+{% endblock %}
+{% block script %}
+{% endblock %}
         <script src="{% static 'words/vendor/jquery/jquery.min.js' %}"></script>
         <script src="{% static 'words/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
 	<script src="{% static 'words/vendor/popper.min.js' %}"></script>
