@@ -6,7 +6,7 @@ from django.template import RequestContext
 
 class IndexView(ListView):
     model = WordBook
-    paginate_by = 8
+    paginate_by = 10
 
 class search(ListView):
     model = WordBook
@@ -85,10 +85,3 @@ def getPrevObj(request):
     except:
         raise Http404
 
-
-def error404(request,exception):
-    return render(request,'words/error_404_page.html',status=404)
-
-
-def error500(request):
-    return render(request,'words/error_500_page.html',status=500)
