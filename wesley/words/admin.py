@@ -1,6 +1,11 @@
 from django.contrib import admin
 from . import models
 
+
+@admin.register(models.Type)
+class TypeAdmin(admin.ModelAdmin):
+    pass
+
 @admin.register(models.Word)
 class WordAdmin(admin.ModelAdmin):
     list_per_page = 20
@@ -26,7 +31,6 @@ class WordBookAdmin(admin.ModelAdmin):
 class sListAdmin(admin.ModelAdmin):
     list_per_page = 20
     list_display = ['theme','word_count']
-    
     def word_count(self,obj):
         return models.Word.objects.filter(slist=obj).count()
 
