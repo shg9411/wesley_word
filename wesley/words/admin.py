@@ -2,6 +2,7 @@ from django.contrib import admin
 from . import models
 
 
+
 @admin.register(models.Type)
 class TypeAdmin(admin.ModelAdmin):
     pass
@@ -31,6 +32,7 @@ class WordBookAdmin(admin.ModelAdmin):
 class sListAdmin(admin.ModelAdmin):
     list_per_page = 20
     list_display = ['theme','word_count']
+    filter_horizontal = ["subject"]
     def word_count(self,obj):
         return models.Word.objects.filter(slist=obj).count()
 
@@ -38,6 +40,7 @@ class sListAdmin(admin.ModelAdmin):
 class vListAdmin(admin.ModelAdmin):
     list_per_page = 20
     list_display = ['theme','word_count']
+    filter_horizontal = ["verb"]
 
     def word_count(self,obj):
         return models.Word.objects.filter(vlist=obj).count()
@@ -46,6 +49,6 @@ class vListAdmin(admin.ModelAdmin):
 class oListAdmin(admin.ModelAdmin):
     list_per_page = 20
     list_display = ['theme','word_count']
-
+    filter_horizontal = ["obj"]
     def word_count(self,obj):
         return models.Word.objects.filter(olist=obj).count()

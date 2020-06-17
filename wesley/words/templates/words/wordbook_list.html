@@ -3,6 +3,7 @@
 {% block content %}
         <div class="container">
 <br>
+{% if wordbook_list %}
         <div class="row">
             {% for wordbook in wordbook_list %}
             <div class="col">
@@ -58,6 +59,7 @@
 </nav>
 	        </div>
 	    </div>
+{% endif %}
 <footer id="footer">
         <div class="row">
           <div class="col-lg-12">
