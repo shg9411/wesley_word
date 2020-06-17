@@ -71,7 +71,6 @@ coverage.xml
 # Translations
 *.mo
 
-# Django stuff:
 
 # Flask stuff:
 instance/
