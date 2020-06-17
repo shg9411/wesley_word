@@ -7,7 +7,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta name="author" content="Song_H_G">
 
-        <title>Wesley</title>
+        <title>Funvoca</title>
+	<link rel="icon" href="https://contents.sixshop.com/uploadedFiles/70114/default/image_1534242923467.ico">
         <link href="{% static 'words/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
         <link href="{% static 'words/css/simple-sidebar.css' %}" rel="stylesheet">
         <link rel="stylesheet" href="{% static 'words/css/index.css' %}">
@@ -18,21 +19,31 @@
     <body>
         <div class="d-flex" id="wrapper">
             <div id="page-content-wrapper">
-                <nav class="navbar navbar-light bg-light">
-                    <a class="navbar-brand" href="/">
-                        <img src="https://contents.sixshop.com/uploadedFiles/70114/default/image_1533798102474.png"
-                            width="130" class="d-inline-block" alt="웨슬리 어학원">
+                <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+                    <a class="navbar-brand" href="https://wesley.co.kr/">
+Wesley
                     </a>
-                    <a class="navbar-brand" href="/admin/">
-                        <img src="{% static 'words/icon.png' %}"
-                            width="30" class="d-inline-block" alt="Admin">
-                    </a>
+			 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+<div class="collapse navbar-collapse" id="navbarColor01">
+<ul class="navbar-nav mr-auto">
+<li class="nav-item active">
+                    <a class="nav-link" href="/admin/">
+                    Admin</a>
+</li>
+<li class="nav-item active">
+<a class="nav-link" href="/">
+Home</a>
+</li>
+</ul>
                     <form class="form-inline my-2 my-lg-0" action="/search/" method="get">
-                        <input class="form-control mr-sm-2" type="search" name="wb" placeholder="Search By Title"
-                            aria-label="Search">
-                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit"
+                        <input class="form-control mr-sm-2" type="text" name="wb" placeholder="Search By Title"
+                            >
+                        <button class="btn btn-secondary my-2 my-sm-0" type="submit"
                             value="Search">Search</button>
                     </form>
+</div>
                 </nav>
                 {% block content %}
                 {% endblock %}
@@ -42,6 +53,8 @@
         {% endblock %}
         <script src="{% static 'words/vendor/jquery/jquery.min.js' %}"></script>
         <script src="{% static 'words/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+	<script src="{% static 'words/vendor/popper.min.js' %}"></script>
+<script data-ad-client="ca-pub-4399303411197494" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     </body>
 
 </html>

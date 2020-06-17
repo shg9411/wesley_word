@@ -1,18 +1,17 @@
 {% extends 'words/base.html' %}
 {% load static %}
 {% block content %}
-<section class="pricing">
-    <div class="container">
-        <br>
+        <div class="container">
+<br>
         <div class="row">
             {% for wordbook in wordbook_list %}
             <div class="col">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title"><a href="{% url 'detail' wordbook.id %}">{{wordbook.title}}</a>
-                        </h5>
+                        <h4 class="card-title"><a href="{% url 'detail' wordbook.id %}">{{wordbook.title}}</a>
+                        </h4>
                         <p class="card-text">{{wordbook.description}}</p>
-                        <p class="card-text text-muted">{% if wordbook.subjects %}
+                        <h6 class="card-subtitle mb-2 text-muted">{% if wordbook.subjects %}
                             S
                             {% endif %}
                             {% if wordbook.verbs %}
@@ -20,7 +19,7 @@
                             {% endif %}
                             {% if wordbook.objs %}
                             O
-                            {% endif %}</p>
+                            {% endif %}</h6>
                     </div>
                 </div>
             </div>
@@ -30,21 +29,34 @@
             {% endfor %}
         </div>
         <br>
-        <div class="pagination" style="background-color:#FFFFFF;">
-            <span class="step-links" style="display: inline-block; width: 95%; text-align: center;">
-                {% if page_obj.has_previous %}
-                <a href="?page=1">&laquo; 처음</a>
-                <a href="?page={{ page_obj.previous_page_number }}">이전</a>
-                {% endif %}
-                <span class="current">
-                    Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
-                </span>
-                {% if page_obj.has_next %}
-                <a href="?page={{ page_obj.next_page_number }}">다음</a>
-                <a href="?page={{ page_obj.paginator.num_pages }}">마지막 &raquo;</a>
-                {% endif %}
-            </span>
-        </div>
-    </div>
-</section>
+	  <div class="row mt-2">
+        	<div class="col-12">
+<nav>
+                <ul class="pagination mx-auto justify-content-center">
+                    {% if page_obj.has_previous %}                         
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{page_obj.previous_page_number }}">Prev</a>
+                    </li>
+                    {% else %}
+                    <li class="page-item disabled">
+                        <a class="page-link" href="#">Prev</a>
+                    </li>
+                    {% endif %}
+                    <li class="page-item">
+                        <a class="page-link" href="#">{{page_obj.number}} of {{page_obj.paginator.num_pages}}</a>
+                    </li>
+                    {% if page_obj.has_next %}
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{page_obj.next_page_number }}">Next</a>
+                    </li>
+                    {% else %}
+                    <li class="page-item disabled">
+                        <a class="page-link" href="#">Next</a>
+                    </li>
+                    {% endif %}
+                </ul>
+</nav>
+	        </div>
+	    </div>
+</div>
 {% endblock %}
