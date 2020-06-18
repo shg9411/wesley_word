@@ -87,3 +87,7 @@ section {
 ul {
     text-align: center;
 }
+
+.form-control-lg {
+padding: 0;
+}
