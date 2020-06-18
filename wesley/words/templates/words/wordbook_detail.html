@@ -2,12 +2,12 @@
 {% load static %}
 
 {% block content %}
-<div class="contatiner-fluid">
+<div class="contatiner">
 <br>        
-<div class="row">
+<div class="row justify-content-center">
             <div id="id" style="display:none">{{pk}}</div>
             {% if subject %}
-            <div class="col-lg-4">
+            <div class="col-4">
                 <div class="card mb-5 mb-lg-0">
                     <div class="card-body">
                         <h3 class="text-uppercase text-center" id="subMean" style="display:none;">
@@ -27,7 +27,7 @@
             </div>
             {% endif %}
             {% if verb %}
-            <div class="col-lg-4">
+            <div class="col-4">
                 <div class="card mb-5 mb-lg-0">
                     <div class="card-body">
                         <h3 class="text-uppercase text-center" id="verbMean" style="display:none;">
@@ -47,7 +47,7 @@
             </div>
             {% endif %}
             {% if obj %}
-            <div class="col-lg-4">
+            <div class="col-4">
                 <div class="card">
                     <div class="card-body">
                         <h3 class="text-uppercase text-center" id="objMean" style="display:none;">
