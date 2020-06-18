@@ -11,7 +11,7 @@
                 <div class="card mb-5 mb-lg-0">
                     <div class="card-body">
                         <h3 class="text-uppercase text-center" id="subMean" style="display:none;">
-                            {% if subject.mean %}{{subject.mean}}{% endif %}</h3>
+                            {{subject.mean}}</h3>
                         <hr>
                         <ul class="fa-ul" id="subField">
                             <img src="/media/{{subject.word}}.jpg"
@@ -31,7 +31,7 @@
                 <div class="card mb-5 mb-lg-0">
                     <div class="card-body">
                         <h3 class="text-uppercase text-center" id="verbMean" style="display:none;">
-                            {% if verb.mean %}{{verb.mean}}{% endif %}</h3>
+                        {{verb.mean}}</h3>
                         <hr>
                         <ul class="fa-ul" id="verbField">
                             <img src="/media/{{verb.word}}.jpg"
@@ -51,7 +51,7 @@
                 <div class="card">
                     <div class="card-body">
                         <h3 class="text-uppercase text-center" id="objMean" style="display:none;">
-                            {% if obj.mean %}{{obj.mean}}{% endif %}</h3>
+                            {{obj.mean}}</h3>
                         <hr>
                         <ul class="fa-ul" id="objField">
                             <img src="/media/{{obj.word}}.jpg" style='height: 100%; width: 100%; object-fit: contain' />
@@ -85,7 +85,7 @@
                 },
                 success: function (data) {
                     data = data.split(',');
-                    imgString = "<img src =" + data[0] +
+                    imgString = "<img src ='/media/" + data[0] +".jpg'"+
                         " style='height: 100%; width: 100%; object-fit: contain' />";
                     $('#subField').html(imgString);
                     subId -= 1;
@@ -110,7 +110,7 @@
                 },
                 success: function (data) {
                     data = data.split(',');
-                    imgString = "<img src =" + data[0] +
+                    imgString = "<img src ='/media/" + data[0] +".jpg'"+
                         " style='height: 100%; width: 100%; object-fit: contain' />";
                     $('#subField').html(imgString);
                     subId += 1;
@@ -136,7 +136,7 @@
                 },
                 success: function (data) {
                     data = data.split(',');
-                    imgString = "<img src =" + data[0] +
+                    imgString = "<img src ='/media/" + data[0] +".jpg'"+
                         " style='height: 100%; width: 100%; object-fit: contain' />";
                     $('#verbField').html(imgString);
                     verbId -= 1;
@@ -161,7 +161,7 @@
                 },
                 success: function (data) {
                     data = data.split(',');
-                    imgString = "<img src =" + data[0] +
+                    imgString = "<img src ='/media/" + data[0] +".jpg'"+
                         " style='height: 100%; width: 100%; object-fit: contain' />";
                     $('#verbField').html(imgString);
                     verbId += 1;
@@ -186,7 +186,7 @@
                 },
                 success: function (data) {
                     data = data.split(',');
-                    imgString = "<img src =" + data[0] +
+                    imgString = "<img src ='/media/" + data[0] +".jpg'"+
                         " style='height: 100%; width: 100%; object-fit: contain' />";
                     $('#objField').html(imgString);
                     objId -= 1;
@@ -211,7 +211,7 @@
                 },
                 success: function (data) {
                     data = data.split(',');
-                    imgString = "<img src =" + data[0] +
+                    imgString = "<img src ='/media/" + data[0] +".jpg'"+
                         " style='height: 100%; width: 100%; object-fit: contain' />";
                     $('#objField').html(imgString);
                     objId += 1;

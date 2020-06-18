@@ -19,7 +19,7 @@ class Word(models.Model):
         ordering = ['word',]
 
     def __str__(self):
-        return '/media/{}.jpg,{},{}'.format(self.word,self.mean,self.word_type)
+        return '{},{},{}'.format(self.word,self.mean,self.word_type)
 
 
 class sList(models.Model):

@@ -33,6 +33,7 @@ class sListAdmin(admin.ModelAdmin):
     list_per_page = 20
     list_display = ['theme','word_count']
     filter_horizontal = ["subject"]
+
     def word_count(self,obj):
         return models.Word.objects.filter(slist=obj).count()
 
