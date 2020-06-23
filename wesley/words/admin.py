@@ -1,20 +1,24 @@
 from django.contrib import admin
 from . import models
-
-
+from django.db.models.functions import Lower
 
 @admin.register(models.Type)
 class TypeAdmin(admin.ModelAdmin):
     pass
 
+@admin.register(models.Theme)
+class ThemeAdmin(admin.ModelAdmin):
+    pass
+
 @admin.register(models.Word)
 class WordAdmin(admin.ModelAdmin):
     list_per_page = 20
-    list_display=['word','mean']
-    list_filter = ('word_type',)
+    list_display=['word','mean','theme']
+    list_filter = ('word_type','theme',)
     search_fields = ['word']
-    ordering = ('word',)
 
+    def get_ordering(self,request):
+        return [Lower('word')]
 @admin.register(models.WordBook)
 class WordBookAdmin(admin.ModelAdmin):
     list_per_page = 20

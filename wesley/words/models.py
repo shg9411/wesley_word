@@ -1,5 +1,10 @@
 from django.db import models
 
+class Theme(models.Model):
+    theme = models.CharField(max_length = 20, unique=True)
+    
+    def __str__(self):
+        return self.theme
 
 class Type(models.Model):
     _type = models.CharField(max_length = 20)
@@ -14,12 +19,12 @@ class Word(models.Model):
     word = models.CharField(max_length = 20)
     image = models.ImageField(blank=True)
     mean = models.CharField(max_length = 20, blank = True)
-    
+    theme = models.ForeignKey(Theme, blank=True,null=True,on_delete=models.SET_NULL)
     class Meta:
         ordering = ['word',]
 
     def __str__(self):
-        return '{},{},{}'.format(self.word,self.mean,self.word_type)
+        return '{},{},{},{}'.format(self.word,self.mean,self.word_type,self.theme)
 
 
 class sList(models.Model):

@@ -8,15 +8,21 @@
             <div id="id" style="display:none">{{pk}}</div>
             {% if subject %}
 		<div class="col-1 my-auto">
-<div class="form-group">
-<input class="form-control form-control-lg text-center">
+<div class="row form-group" id="scontent">
+<input class = "form-control text-center" style="font-size:xx-large;padding:5px"/>
 </div>
-	</div>
+<div class = "row btn-group d-flex" role = "group">
+<button type = "button" class = "btn btn-secondary" onclick="sAdd();">Add</button>
+<button type = "button" class = "btn btn-secondary" onclick="sRemove();">Remove</button>
+</div>
+
+
+		</div>
             <div class="col-3 my-auto">
                 <div class="card mb-5 mb-lg-0">
                     <div class="card-body">
                         <h3 class="text-uppercase text-center" id="subMean" style="display:none;">
-                            {{subject.mean}}</h3>
+                            {{subject.mean}}({{subject.word}})</h3>
                         <hr>
                         <ul class="fa-ul" id="subField">
                             <img src="/media/{{subject.word}}.jpg"
@@ -33,15 +39,20 @@
             {% endif %}
             {% if verb %}
 <div class="col-1 my-auto">
-<div class="form-group">
-<input class="form-control form-control-lg text-center">
+<div class="row form-group" id="vcontent">
+<input class = "form-control text-center" style="font-size:xx-large"/>
 </div>
+<div class = "row btn-group d-flex" role = "group">
+<button type = "button" class = "btn btn-secondary" onclick="vAdd();">Add</button>
+<button type = "button" class = "btn btn-secondary" onclick="vRemove();">Remove</button>
+</div>
+
 </div>
             <div class="col-3 my-auto">
                 <div class="card mb-5 mb-lg-0">
                     <div class="card-body">
                         <h3 class="text-uppercase text-center" id="verbMean" style="display:none;">
-                        {{verb.mean}}</h3>
+                        {{verb.mean}}({{verb.word}})</h3>
                         <hr>
                         <ul class="fa-ul" id="verbField">
                             <img src="/media/{{verb.word}}.jpg"
@@ -58,15 +69,19 @@
             {% endif %}
             {% if obj %}
 <div class="col-1 my-auto">
-<div class="form-group">
-<input class="form-control form-control-lg text-center">
+<div class="row form-group" id="ocontent">
+<input class = "form-control text-center" style="font-size:xx-large"/>
+</div>
+<div class = "row btn-group d-flex" role = "group">
+<button type = "button" class = "btn btn-secondary" onclick="oAdd();">Add</button>
+<button type = "button" class = "btn btn-secondary" onclick="oRemove();">Remove</button>
 </div>
 </div>
             <div class="col-3 my-auto">
                 <div class="card">
                     <div class="card-body">
                         <h3 class="text-uppercase text-center" id="objMean" style="display:none;">
-                            {{obj.mean}}</h3>
+                            {{obj.mean}}({{obj.word}})</h3>
                         <hr>
                         <ul class="fa-ul" id="objField">
                             <img src="/media/{{obj.word}}.jpg" style='height: 100%; width: 100%; object-fit: contain' alter="{{obj.word}}.jpg" />
@@ -105,10 +120,11 @@
                     $('#subField').html(imgString);
                     subId -= 1;
                     if (data.length > 1) {
-                        $('#subMean').html(data[1]);
+                        $('#subMean').html(data[1]+"("+data[0]+")");
                     } else {
                         $('#subMean').html();
                     }
+		turnOff("subMean");
                 },
                 error: function () {
                     alert("This word is First one.");
@@ -130,10 +146,11 @@
                     $('#subField').html(imgString);
                     subId += 1;
                     if (data.length > 1) {
-                        $('#subMean').html(data[1]);
+                        $('#subMean').html(data[1]+"("+data[0]+")");
                     } else {
                         $('#subMean').html('');
                     }
+		turnOff("subMean");
                 },
                 error: function () {
                     alert("This word is Last one.");
@@ -156,10 +173,11 @@
                     $('#verbField').html(imgString);
                     verbId -= 1;
                     if (data.length > 1) {
-                        $('#verbMean').html(data[1]);
+                        $('#verbMean').html(data[1]+"("+data[0]+")");
                     } else {
                         $('#verbMean').html('');
                     }
+		turnOff("verbMean");
                 },
                 error: function () {
                     alert("This word is First one.");
@@ -181,10 +199,11 @@
                     $('#verbField').html(imgString);
                     verbId += 1;
                     if (data.length > 1) {
-                        $('#verbMean').html(data[1]);
+                        $('#verbMean').html(data[1]+"("+data[0]+")");
                     } else {
                         $('#verbMean').html('');
                     }
+		turnOff("verbMean");
                 },
                 error: function () {
                     alert("This word is Last one.");
@@ -206,10 +225,11 @@
                     $('#objField').html(imgString);
                     objId -= 1;
                     if (data.length > 1) {
-                        $('#objMean').html(data[1]);
+                        $('#objMean').html(data[1]+"("+data[0]+")");
                     } else {
                         $('#objMean').html('');
                     }
+		turnOff("objMean");
                 },
                 error: function () {
                     alert("This word is First one.");
@@ -231,10 +251,11 @@
                     $('#objField').html(imgString);
                     objId += 1;
                     if (data.length > 1) {
-                        $('#objMean').html(data[1]);
+                        $('#objMean').html(data[1]+"("+data[0]+")");
                     } else {
                         $('#objMean').html('');
                     }
+		turnOff("objMean");
                 },
                 error: function () {
                     alert("This word is Last one.");
@@ -269,5 +290,35 @@
             tmp.style.display = "none";
         }
     }
+    function turnOff(v){
+	var tmp = document.getElementById(v);
+	if (tmp.style.display === "block")
+		tmp.style.display = "none";
+    }
+    function sAdd(){
+	var tmp = document.getElementById("scontent");
+	var add = '<input class = "form-control text-center" style = "font-size:xx-large"/>'
+	$('#scontent').append(add);
+    }
+    function sRemove(){
+	$('#scontent input:last').remove();
+	}
+function vAdd(){
+var tmp = document.getElementById("vcontent");
+var add = '<input class = "form-control text-center" style="font-size:xx-large"/></div>';
+$('#vcontent').append(add);
+}
+function vRemove(){
+$('#vcontent input:last').remove();
+}
+function oAdd(){
+var tmp = document.getElementById("ocontent");
+var add = '<input class = "form-control text-center" style="font-size:xx-large"/></div>';
+$('#ocontent').append(add);
+}
+function oRemove(){
+$('#ocontent input:last').remove();
+}
+
 </script>
 {% endblock %}
