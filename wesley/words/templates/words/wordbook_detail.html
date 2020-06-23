@@ -21,7 +21,7 @@
             <div class="col-3 my-auto">
                 <div class="card mb-5 mb-lg-0">
                     <div class="card-body">
-                        <h3 class="text-uppercase text-center" id="subMean" style="display:none;">
+                        <h3 class="text-capitalize text-center" id="subMean" style="display:none;">
                             {{subject.mean}}({{subject.word}})</h3>
                         <hr>
                         <ul class="fa-ul" id="subField">
@@ -40,7 +40,7 @@
             {% if verb %}
 <div class="col-1 my-auto">
 <div class="row form-group" id="vcontent">
-<input class = "form-control text-center" style="font-size:xx-large"/>
+<input class = "form-control text-center" style="font-size:xx-large; padding:5px"/>
 </div>
 <div class = "row btn-group d-flex" role = "group">
 <button type = "button" class = "btn btn-secondary" onclick="vAdd();">Add</button>
@@ -51,7 +51,7 @@
             <div class="col-3 my-auto">
                 <div class="card mb-5 mb-lg-0">
                     <div class="card-body">
-                        <h3 class="text-uppercase text-center" id="verbMean" style="display:none;">
+                        <h3 class="text-capitalize text-center" id="verbMean" style="display:none;">
                         {{verb.mean}}({{verb.word}})</h3>
                         <hr>
                         <ul class="fa-ul" id="verbField">
@@ -70,7 +70,7 @@
             {% if obj %}
 <div class="col-1 my-auto">
 <div class="row form-group" id="ocontent">
-<input class = "form-control text-center" style="font-size:xx-large"/>
+<input class = "form-control text-center" style="font-size:xx-large; padding:5px"/>
 </div>
 <div class = "row btn-group d-flex" role = "group">
 <button type = "button" class = "btn btn-secondary" onclick="oAdd();">Add</button>
@@ -80,7 +80,7 @@
             <div class="col-3 my-auto">
                 <div class="card">
                     <div class="card-body">
-                        <h3 class="text-uppercase text-center" id="objMean" style="display:none;">
+                        <h3 class="text-capitalize text-center" id="objMean" style="display:none;">
                             {{obj.mean}}({{obj.word}})</h3>
                         <hr>
                         <ul class="fa-ul" id="objField">
@@ -297,7 +297,7 @@
     }
     function sAdd(){
 	var tmp = document.getElementById("scontent");
-	var add = '<input class = "form-control text-center" style = "font-size:xx-large"/>'
+	var add = '<input class = "form-control text-center" style = "font-size:xx-large; padding:5px"/>'
 	$('#scontent').append(add);
     }
     function sRemove(){
@@ -305,7 +305,7 @@
 	}
 function vAdd(){
 var tmp = document.getElementById("vcontent");
-var add = '<input class = "form-control text-center" style="font-size:xx-large"/></div>';
+var add = '<input class = "form-control text-center" style="font-size:xx-large; padding:5px"/></div>';
 $('#vcontent').append(add);
 }
 function vRemove(){
@@ -313,7 +313,7 @@ $('#vcontent input:last').remove();
 }
 function oAdd(){
 var tmp = document.getElementById("ocontent");
-var add = '<input class = "form-control text-center" style="font-size:xx-large"/></div>';
+var add = '<input class = "form-control text-center" style="font-size:xx-large; padding:5px"/></div>';
 $('#ocontent').append(add);
 }
 function oRemove(){
