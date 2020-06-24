@@ -22,12 +22,12 @@ class WordAdmin(admin.ModelAdmin):
 @admin.register(models.WordBook)
 class WordBookAdmin(admin.ModelAdmin):
     list_per_page = 20
-    list_display = ['title','description']
+    list_display = ['teacher','_class','title','description']
     search_fields = ['title']
     ordering = ('title',)
 
     fieldsets = [
-        ('Title', {'fields':['title']}),
+        ('Title', {'fields':['teacher','_class','title']}),
         ('List',{'fields':['subjects','verbs','objs']}),
         ('Description',{'fields':['description']}),
     ]

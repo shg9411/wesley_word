@@ -50,6 +50,8 @@ class oList(models.Model):
         return self.theme
 
 class WordBook(models.Model):
+    teacher = models.CharField(max_length = 20)
+    _class = models.CharField(max_length = 20)
     title = models.CharField(max_length = 20)
     subjects = models.ForeignKey(sList,null=True,blank = True, on_delete=models.CASCADE)
     verbs = models.ForeignKey(vList,null=True,blank = True, on_delete=models.CASCADE)
@@ -57,4 +59,4 @@ class WordBook(models.Model):
     description = models.CharField(max_length = 100, blank = True)
 
     def __str__(self):
-        return self.title
+        return "{} {} {}".format(self.teacher,self._class,self.title)

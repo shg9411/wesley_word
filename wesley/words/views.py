@@ -3,10 +3,12 @@ from django.http import HttpResponse, Http404
 from django.views.generic import ListView
 from .models import Word, WordBook
 from django.template import RequestContext
+from django.db.models import Q
 
 class IndexView(ListView):
     model = WordBook
     paginate_by = 10
+    ordering = ['teacher']
 
 class search(ListView):
     model = WordBook
@@ -15,10 +17,14 @@ class search(ListView):
 
     def get_queryset(self):
         q = self.request.GET.get('wb','')
-        if (q != ''):
-            wordbook_list = self.model.objects.filter(title__icontains  = q)
+        if q == '':
+            wordbook_list = self.model.objects.all().order_by('teacher')
         else:
-            wordbook_list = self.model.objects.all()
+            try:
+                tmp = q.split()
+                wordbook_list = self.model.objects.filter(teacher__icontains=tmp[0],_class__icontains=tmp[1]).order_by('title')
+            except:
+                wordbook_list = self.model.objects.filter(Q(teacher__icontains=q) | Q(_class__icontains=q)).order_by('title')
         return wordbook_list
 
 def detail(request,pk):

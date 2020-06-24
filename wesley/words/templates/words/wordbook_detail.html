@@ -1,116 +1,107 @@
 {% extends 'words/base.html' %}
 {% load static %}
-
 {% block content %}
 <div class="container-fluid">
-<br>        
-<div class="row justify-content-md-center">
-            <div id="id" style="display:none">{{pk}}</div>
-            {% if subject %}
-		<div class="col-1 my-auto">
-<div class="row form-group" id="scontent">
-<input class = "form-control text-center" style="font-size:xx-large;padding:5px"/>
-</div>
-<div class = "row btn-group d-flex" role = "group">
-<button type = "button" class = "btn btn-secondary" onclick="sAdd();">Add</button>
-<button type = "button" class = "btn btn-secondary" onclick="sRemove();">Remove</button>
-</div>
-
-
+	<br>        
+	<div class="row justify-content-md-center">
+		<div id="id" style="display:none">{{pk}}</div>
+			{% if subject %}
+				<div class="col-1 my-auto">
+					<div class="row form-group" id="scontent">
+						<input class = "form-control text-center" style="font-size:xx-large;padding:5px"/>
+					</div>
+					<div class = "row btn-group d-flex" role = "group">
+						<button type = "button" class = "btn btn-secondary" onclick="sAdd();">Add</button>
+						<button type = "button" class = "btn btn-secondary" onclick="sRemove();">Remove</button>
+					</div>
+				</div>
+				<div class="col-3 my-auto">
+		                	<div class="card mb-5 mb-lg-0">
+                				<div class="card-body">
+				                        <h3 class="text-capitalize text-center" id="subMean" style="display:none;">{{subject.mean}}({{subject.word}})</h3>
+							<hr>
+				                        <ul class="fa-ul" id="subField">
+					                        <img src="/media/{{subject.word}}.jpg" style='height: 100%; width: 100%; object-fit: contain' alter="{{subject.word}}.jpg"/>
+							</ul>
+				                        <ul>
+				                            <input type="button" value="Prev" id="sPrev" class="btn btn-primary">
+				                            <input type="button" value="Next" id="sNext" class="btn btn-primary">
+				                            <input type="button" value="on/off" id="toggle" class="btn btn-primary" onclick="funcS()">
+				                        </ul>
+						</div>
+			                </div>
+				</div>
+			{% endif %}
+			{% if verb %}
+				<div class="col-1 my-auto">
+					<div class="row form-group" id="vcontent">
+						<input class = "form-control text-center" style="font-size:xx-large; padding:5px"/>
+					</div>
+					<div class = "row btn-group d-flex" role = "group">
+						<button type = "button" class = "btn btn-secondary" onclick="vAdd();">Add</button>
+						<button type = "button" class = "btn btn-secondary" onclick="vRemove();">Remove</button>
+					</div>
+				</div>
+				<div class="col-3 my-auto">
+					<div class="card mb-5 mb-lg-0">
+						<div class="card-body">
+				                        <h3 class="text-capitalize text-center" id="verbMean" style="display:none;">{{verb.mean}}({{verb.word}})</h3>
+				                        <hr>
+				                        <ul class="fa-ul" id="verbField">
+					                            <img src="/media/{{verb.word}}.jpg" style='height: 100%; width: 100%; object-fit: contain' alter="{{verb.word}}.jpg" />
+							</ul>
+							<ul>
+								<input type="button" value="Prev" id="vPrev" class="btn btn-primary">
+								<input type="button" value="Next" id="vNext" class="btn btn-primary">
+								<input type="button" value="on/off" id="toggle" class="btn btn-primary" onclick="funcV()">
+							</ul>
+						</div>
+					</div>
+				</div>
+			{% endif %}
+			{% if obj %}
+				<div class="col-1 my-auto">
+					<div class="row form-group" id="ocontent">
+						<input class = "form-control text-center" style="font-size:xx-large; padding:5px"/>
+					</div>
+					<div class = "row btn-group d-flex" role = "group">
+						<button type = "button" class = "btn btn-secondary" onclick="oAdd();">Add</button>
+						<button type = "button" class = "btn btn-secondary" onclick="oRemove();">Remove</button>
+					</div>
+				</div>
+				<div class="col-3 my-auto">
+					<div class="card">
+						<div class="card-body">
+							<h3 class="text-capitalize text-center" id="objMean" style="display:none;">{{obj.mean}}({{obj.word}})</h3>
+							<hr>
+							<ul class="fa-ul" id="objField">
+								<img src="/media/{{obj.word}}.jpg" style='height: 100%; width: 100%; object-fit: contain' alter="{{obj.word}}.jpg" />
+							</ul>
+							<ul>
+								<input type="button" value="Prev" id="oPrev" class="btn btn-primary">
+								<input type="button" value="Next" id="oNext" class="btn btn-primary">
+								<input type="button" value="on/off" id="toggle" class="btn btn-primary" onclick="funcO()">
+							</ul>
+						</div>
+					</div>
+				</div>
+			{% endif %}
 		</div>
-            <div class="col-3 my-auto">
-                <div class="card mb-5 mb-lg-0">
-                    <div class="card-body">
-                        <h3 class="text-capitalize text-center" id="subMean" style="display:none;">
-                            {{subject.mean}}({{subject.word}})</h3>
-                        <hr>
-                        <ul class="fa-ul" id="subField">
-                            <img src="/media/{{subject.word}}.jpg"
-                                style='height: 100%; width: 100%; object-fit: contain' alter="{{subject.word}}.jpg"/>
-                        </ul>
-                        <ul>
-                            <input type="button" value="Prev" id="sPrev" class="btn btn-primary">
-                            <input type="button" value="Next" id="sNext" class="btn btn-primary">
-                            <input type="button" value="on/off" id="toggle" class="btn btn-primary" onclick="funcS()">
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            {% endif %}
-            {% if verb %}
-<div class="col-1 my-auto">
-<div class="row form-group" id="vcontent">
-<input class = "form-control text-center" style="font-size:xx-large; padding:5px"/>
-</div>
-<div class = "row btn-group d-flex" role = "group">
-<button type = "button" class = "btn btn-secondary" onclick="vAdd();">Add</button>
-<button type = "button" class = "btn btn-secondary" onclick="vRemove();">Remove</button>
-</div>
-
-</div>
-            <div class="col-3 my-auto">
-                <div class="card mb-5 mb-lg-0">
-                    <div class="card-body">
-                        <h3 class="text-capitalize text-center" id="verbMean" style="display:none;">
-                        {{verb.mean}}({{verb.word}})</h3>
-                        <hr>
-                        <ul class="fa-ul" id="verbField">
-                            <img src="/media/{{verb.word}}.jpg"
-                                style='height: 100%; width: 100%; object-fit: contain' alter="{{verb.word}}.jpg" />
-                        </ul>
-                        <ul>
-                            <input type="button" value="Prev" id="vPrev" class="btn btn-primary">
-                            <input type="button" value="Next" id="vNext" class="btn btn-primary">
-                            <input type="button" value="on/off" id="toggle" class="btn btn-primary" onclick="funcV()">
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            {% endif %}
-            {% if obj %}
-<div class="col-1 my-auto">
-<div class="row form-group" id="ocontent">
-<input class = "form-control text-center" style="font-size:xx-large; padding:5px"/>
-</div>
-<div class = "row btn-group d-flex" role = "group">
-<button type = "button" class = "btn btn-secondary" onclick="oAdd();">Add</button>
-<button type = "button" class = "btn btn-secondary" onclick="oRemove();">Remove</button>
-</div>
-</div>
-            <div class="col-3 my-auto">
-                <div class="card">
-                    <div class="card-body">
-                        <h3 class="text-capitalize text-center" id="objMean" style="display:none;">
-                            {{obj.mean}}({{obj.word}})</h3>
-                        <hr>
-                        <ul class="fa-ul" id="objField">
-                            <img src="/media/{{obj.word}}.jpg" style='height: 100%; width: 100%; object-fit: contain' alter="{{obj.word}}.jpg" />
-                        </ul>
-                        <ul>
-                            <input type="button" value="Prev" id="oPrev" class="btn btn-primary">
-                            <input type="button" value="Next" id="oNext" class="btn btn-primary">
-                            <input type="button" value="on/off" id="toggle" class="btn btn-primary" onclick="funcO()">
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            {% endif %}
-        </div>
-</div>
+	</div>
 {% endblock %}
 {% block script %}
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 <script type="text/javascript">
-    var subId = 0;
-    var objId = 0;
-    var verbId = 0;
-    var pk = document.getElementById("id").textContent;
-    $(document).ready(function () {
-        $('#sPrev').click(function () {
-            $.ajax({
-                url: '/getPrevSub/',
-                data: {
-                    id: subId,
+	var subId = 0;
+	var objId = 0;
+	var verbId = 0;
+	var pk = document.getElementById("id").textContent;
+	$(document).ready(function () {
+	        $('#sPrev').click(function () {
+        		$.ajax({
+				url: '/getPrevSub/',
+				data: {
+					id: subId,
                     pk: pk,
                 },
                 success: function (data) {

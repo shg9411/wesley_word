@@ -69,9 +69,7 @@ body {
     font-family:'HelveticaNeue';
 }
 footer {
-  position: absolute;
-  bottom: 0;
-  height: 50px; /* Set the fixed height of the footer here */
+  bottom: 20px;
 }
 section {
     width: 100%;
