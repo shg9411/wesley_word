@@ -10,7 +10,11 @@
 					<div class="card">
 						<div class="card-body">
 							<h5 class="text-capitalize"><a href="{% url 'detail' wordbook.id %}">{{wordbook}}</a></h5>
-							<p class="card-text">{{wordbook.description}}</p>
+							<p class="card-text">{% if wordbook.description %}
+										{{wordbook.description}}
+										{% else %}
+										<br>{% endif %}
+							</p>
 							<h6 class="card-subtitle mb-2 text-muted">
 								{% if wordbook.subjects %}
 									S
@@ -67,9 +71,9 @@
 		<footer class="footer" style="text-align:center;margin:auto">
 			<div class="row mt-2">
 				<div class="col-12">
-					Made by <a href="https://github.com/shg9411">Song_H_G</a>.<br>
 					상호: (주)웨슬리 | 대표: 조성범 | 전화: 032-342-0509 | 이메일: wesley3420509@naver.com <br>
-					주소: 경기도 부천시 경인로 486, 5층 (괴안동,세코프라자) | 사업자등록번호: <span>130-86-39644</span>
+					주소: 경기도 부천시 경인로 486, 5층 (괴안동,세코프라자) | 사업자등록번호: <span>130-86-39644</span><br>
+					Made by <a href="https://github.com/shg9411">Song_H_G</a>.<br>
 				</div>
 			</div>
 		</footer>
