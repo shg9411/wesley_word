@@ -3,88 +3,173 @@
 {% block content %}
 <div class="container-fluid">
 	<br>        
-	<div class="row justify-content-md-center">
+	<div class="row justify-content-center">
 		<div id="id" style="display:none">{{pk}}</div>
+			{% if subject and verb and obj %}
+ <div class="col-1 my-auto">
+                                        <div class="row form-group" id="scontent">
+                                                <input class = "form-control text-center" style="font-size:x-large;padding:5px"/>
+                                        </div>
+                                        <div class = "row btn-group d-flex" role = "group">
+                                                <button type = "button" class = "btn btn-secondary" onclick="sAdd();">Add</button>
+                                                <button type = "button" class = "btn btn-secondary" onclick="sRemove();">Remove</button>
+                                        </div>
+                                </div>
+                                <div class="col-3 my-auto">
+                                        <div class="card mb-5 mb-md-0">
+                                                <div class="card-body">
+                                                        <h3 class="text-capitalize text-center" id="subMean" style="display:none;">{{subject.mean}}({{subject.word}})</h3>
+                                                        <hr>
+                                                        <ul class="fa-ul" id="subField" style="padding-inline-start:0px;">
+                                                                <img src="/media/{{subject.word}}.jpg" style='height: 100%; width: 100%; object-fit: contain' alter="{{subject.word}}.jpg"/>
+                                                        </ul>
+							<div class = "row btn-group d-flex" role = "group">
+								<button type = "button" class = "btn btn-secondary" id = "sPrev">Prev</button>
+								<button type = "button" class = "btn btn-secondary" id = "sNext">Next</button>
+								<button type = "button" class = "btn btn-secondary" onclick="funcS()">toggle</button>
+							</div>
+                                                </div>
+                                        </div>
+                                </div>
+ <div class="col-1 my-auto">
+                                        <div class="row form-group" id="vcontent">
+                                                <input class = "form-control text-center" style="font-size:x-large; padding:5px"/>
+                                        </div>
+                                        <div class = "row btn-group d-flex" role = "group">
+                                                <button type = "button" class = "btn btn-secondary" onclick="vAdd();">Add</button>
+                                                <button type = "button" class = "btn btn-secondary" onclick="vRemove();">Remove</button>
+                                        </div>
+                                </div>
+                                <div class="col-3 my-auto">
+                                        <div class="card mb-5 mb-md-0">
+                                                <div class="card-body">
+                                                        <h3 class="text-capitalize text-center" id="verbMean" style="display:none;">{{verb.mean}}({{verb.word}})</h3>
+                                                        <hr>
+                                                        <ul class="fa-ul" id="verbField" style="padding-inline-start:0px;">
+                                                                    <img src="/media/{{verb.word}}.jpg" style='height: 100%; width: 100%; object-fit: contain' alter="{{verb.word}}.jpg" />
+                                                        </ul>
+							 <div class = "row btn-group d-flex" role = "group">
+                                                                <button type = "button" class = "btn btn-secondary" id = "vPrev">Prev</button>
+                                                                <button type = "button" class = "btn btn-secondary" id = "vNext">Next</button>
+                                                                <button type = "button" class = "btn btn-secondary" onclick="funcV()">toggle</button>
+                                                        </div>
+
+                                                </div>
+                                        </div>
+                                </div>
+
+<div class="col-1 my-auto">
+                                        <div class="row form-group" id="ocontent">
+                                                <input class = "form-control text-center" style="font-size:x-large; padding:5px"/>
+                                        </div>
+                                        <div class = "row btn-group d-flex" role = "group">
+                                                <button type = "button" class = "btn btn-secondary" onclick="oAdd();">Add</button>
+                                                <button type = "button" class = "btn btn-secondary" onclick="oRemove();">Remove</button>
+                                        </div>
+                                </div>
+                                <div class="col-3 my-auto">
+                                        <div class="card mb-5 mb-md-0">
+                                                <div class="card-body">
+                                                        <h3 class="text-capitalize text-center" id="objMean" style="display:none;">{{obj.mean}}({{obj.word}})</h3>
+                                                        <hr>
+                                                        <ul class="fa-ul" id="objField" style="padding-inline-start:0px;">
+                                                                <img src="/media/{{obj.word}}.jpg" style='height: 100%; width: 100%; object-fit: contain' alter="{{obj.word}}.jpg" />
+                                                        </ul>
+							 <div class = "row btn-group d-flex" role = "group">
+                                                                <button type = "button" class = "btn btn-secondary" id = "oPrev">Prev</button>
+                                                                <button type = "button" class = "btn btn-secondary" id = "oNext">Next</button>
+                                                                <button type = "button" class = "btn btn-secondary" onclick="funcO()">toggle</button>
+                                                        </div>
+
+                                                </div>
+                                        </div>
+                                </div>
+
+			{% else %}
 			{% if subject %}
-				<div class="col-1 my-auto">
+				<div class="col-2 my-auto">
 					<div class="row form-group" id="scontent">
-						<input class = "form-control text-center" style="font-size:xx-large;padding:5px"/>
+						<input class = "form-control text-center" style="font-size:x-large;padding:5px"/>
 					</div>
 					<div class = "row btn-group d-flex" role = "group">
 						<button type = "button" class = "btn btn-secondary" onclick="sAdd();">Add</button>
 						<button type = "button" class = "btn btn-secondary" onclick="sRemove();">Remove</button>
 					</div>
 				</div>
-				<div class="col-3 my-auto">
-		                	<div class="card mb-5 mb-lg-0">
+				<div class="col-4 my-auto">
+		                	<div class="card mb-5 mb-md-0">
                 				<div class="card-body">
 				                        <h3 class="text-capitalize text-center" id="subMean" style="display:none;">{{subject.mean}}({{subject.word}})</h3>
 							<hr>
-				                        <ul class="fa-ul" id="subField">
+				                        <ul class="fa-ul" id="subField" style="padding-inline-start:0px;">
 					                        <img src="/media/{{subject.word}}.jpg" style='height: 100%; width: 100%; object-fit: contain' alter="{{subject.word}}.jpg"/>
 							</ul>
-				                        <ul>
-				                            <input type="button" value="Prev" id="sPrev" class="btn btn-primary">
-				                            <input type="button" value="Next" id="sNext" class="btn btn-primary">
-				                            <input type="button" value="on/off" id="toggle" class="btn btn-primary" onclick="funcS()">
-				                        </ul>
+							 <div class = "row btn-group d-flex" role = "group">
+                                                                <button type = "button" class = "btn btn-secondary" id = "sPrev">Prev</button>
+                                                                <button type = "button" class = "btn btn-secondary" id = "sNext">Next</button>
+                                                                <button type = "button" class = "btn btn-secondary" onclick="funcS()">toggle</button>
+                                                        </div>
+
 						</div>
 			                </div>
 				</div>
 			{% endif %}
 			{% if verb %}
-				<div class="col-1 my-auto">
+				<div class="col-2 my-auto">
 					<div class="row form-group" id="vcontent">
-						<input class = "form-control text-center" style="font-size:xx-large; padding:5px"/>
+						<input class = "form-control text-center" style="font-size:x-large; padding:5px"/>
 					</div>
 					<div class = "row btn-group d-flex" role = "group">
 						<button type = "button" class = "btn btn-secondary" onclick="vAdd();">Add</button>
 						<button type = "button" class = "btn btn-secondary" onclick="vRemove();">Remove</button>
 					</div>
 				</div>
-				<div class="col-3 my-auto">
-					<div class="card mb-5 mb-lg-0">
+				<div class="col-4 my-auto">
+					<div class="card mb-5 mb-md-0">
 						<div class="card-body">
 				                        <h3 class="text-capitalize text-center" id="verbMean" style="display:none;">{{verb.mean}}({{verb.word}})</h3>
 				                        <hr>
-				                        <ul class="fa-ul" id="verbField">
+				                        <ul class="fa-ul" id="verbField" style="padding-inline-start:0px;">
 					                            <img src="/media/{{verb.word}}.jpg" style='height: 100%; width: 100%; object-fit: contain' alter="{{verb.word}}.jpg" />
 							</ul>
-							<ul>
-								<input type="button" value="Prev" id="vPrev" class="btn btn-primary">
-								<input type="button" value="Next" id="vNext" class="btn btn-primary">
-								<input type="button" value="on/off" id="toggle" class="btn btn-primary" onclick="funcV()">
-							</ul>
+							 <div class = "row btn-group d-flex" role = "group">
+                                                                <button type = "button" class = "btn btn-secondary" id = "vPrev">Prev</button>
+                                                                <button type = "button" class = "btn btn-secondary" id = "vNext">Next</button>
+                                                                <button type = "button" class = "btn btn-secondary" onclick="funcV()">toggle</button>
+                                                        </div>
+
 						</div>
 					</div>
 				</div>
 			{% endif %}
 			{% if obj %}
-				<div class="col-1 my-auto">
+				<div class="col-2 my-auto">
 					<div class="row form-group" id="ocontent">
-						<input class = "form-control text-center" style="font-size:xx-large; padding:5px"/>
+						<input class = "form-control text-center" style="font-size:x-large; padding:5px"/>
 					</div>
 					<div class = "row btn-group d-flex" role = "group">
 						<button type = "button" class = "btn btn-secondary" onclick="oAdd();">Add</button>
 						<button type = "button" class = "btn btn-secondary" onclick="oRemove();">Remove</button>
 					</div>
 				</div>
-				<div class="col-3 my-auto">
-					<div class="card">
+				<div class="col-4 my-auto">
+					<div class="card mb-5 mb-md-0">
 						<div class="card-body">
 							<h3 class="text-capitalize text-center" id="objMean" style="display:none;">{{obj.mean}}({{obj.word}})</h3>
 							<hr>
-							<ul class="fa-ul" id="objField">
+							<ul class="fa-ul" id="objField" style="padding-inline-start:0px;">
 								<img src="/media/{{obj.word}}.jpg" style='height: 100%; width: 100%; object-fit: contain' alter="{{obj.word}}.jpg" />
 							</ul>
-							<ul>
-								<input type="button" value="Prev" id="oPrev" class="btn btn-primary">
-								<input type="button" value="Next" id="oNext" class="btn btn-primary">
-								<input type="button" value="on/off" id="toggle" class="btn btn-primary" onclick="funcO()">
-							</ul>
+							 <div class = "row btn-group d-flex" role = "group">
+                                                                <button type = "button" class = "btn btn-secondary" id = "oPrev">Prev</button>
+                                                                <button type = "button" class = "btn btn-secondary" id = "oNext">Next</button>
+                                                                <button type = "button" class = "btn btn-secondary" onclick="funcO()">toggle</button>
+                                                        </div>
+
 						</div>
 					</div>
 				</div>
+			{% endif %}
 			{% endif %}
 		</div>
 	</div>
@@ -288,7 +373,7 @@
     }
     function sAdd(){
 	var tmp = document.getElementById("scontent");
-	var add = '<input class = "form-control text-center" style = "font-size:xx-large; padding:5px"/>'
+	var add = '<input class = "form-control text-center" style = "font-size:x-large; padding:5px"/>'
 	$('#scontent').append(add);
     }
     function sRemove(){
@@ -296,7 +381,7 @@
 	}
 function vAdd(){
 var tmp = document.getElementById("vcontent");
-var add = '<input class = "form-control text-center" style="font-size:xx-large; padding:5px"/></div>';
+var add = '<input class = "form-control text-center" style="font-size:x-large; padding:5px"/></div>';
 $('#vcontent').append(add);
 }
 function vRemove(){
@@ -304,7 +389,7 @@ $('#vcontent input:last').remove();
 }
 function oAdd(){
 var tmp = document.getElementById("ocontent");
-var add = '<input class = "form-control text-center" style="font-size:xx-large; padding:5px"/></div>';
+var add = '<input class = "form-control text-center" style="font-size:x-large; padding:5px"/></div>';
 $('#ocontent').append(add);
 }
 function oRemove(){
