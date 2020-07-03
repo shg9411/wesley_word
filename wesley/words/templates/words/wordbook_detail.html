@@ -18,7 +18,8 @@
                                 <div class="col-3 my-auto">
                                         <div class="card mb-5 mb-md-0">
                                                 <div class="card-body">
-                                                        <h3 class="text-capitalize text-center" id="subMean" style="display:none;">{{subject.mean}}({{subject.word}})</h3>
+                                                        <h3 class="text-capitalize text-center" id="subMean" style="display:none;">{{subject.mean}}</h3>
+							<h3 class="text-center" id ="subEng" style="display:none;">{{subject.word}}</h3>
                                                         <hr>
                                                         <ul class="fa-ul" id="subField" style="padding-inline-start:0px;">
                                                                 <img src="/media/{{subject.word}}.jpg" style='height: 100%; width: 100%; object-fit: contain' alter="{{subject.word}}.jpg"/>
@@ -26,7 +27,8 @@
 							<div class = "row btn-group d-flex" role = "group">
 								<button type = "button" class = "btn btn-secondary" id = "sPrev">Prev</button>
 								<button type = "button" class = "btn btn-secondary" id = "sNext">Next</button>
-								<button type = "button" class = "btn btn-secondary" onclick="funcS()">toggle</button>
+								<button type = "button" class = "btn btn-secondary" onclick="funcS()">Kor</button>
+								<button type = "button" class = "btn btn-secondary" onclick="funcSE()">Eng</button>
 							</div>
                                                 </div>
                                         </div>
@@ -43,7 +45,9 @@
                                 <div class="col-3 my-auto">
                                         <div class="card mb-5 mb-md-0">
                                                 <div class="card-body">
-                                                        <h3 class="text-capitalize text-center" id="verbMean" style="display:none;">{{verb.mean}}({{verb.word}})</h3>
+                                                        <h3 class="text-capitalize text-center" id="verbMean" style="display:none;">{{verb.mean}}</h3>
+                                                        <h3 class="text-center" id ="verbEng" style="display:none;">{{verb.word}}</h3>
+
                                                         <hr>
                                                         <ul class="fa-ul" id="verbField" style="padding-inline-start:0px;">
                                                                     <img src="/media/{{verb.word}}.jpg" style='height: 100%; width: 100%; object-fit: contain' alter="{{verb.word}}.jpg" />
@@ -51,7 +55,8 @@
 							 <div class = "row btn-group d-flex" role = "group">
                                                                 <button type = "button" class = "btn btn-secondary" id = "vPrev">Prev</button>
                                                                 <button type = "button" class = "btn btn-secondary" id = "vNext">Next</button>
-                                                                <button type = "button" class = "btn btn-secondary" onclick="funcV()">toggle</button>
+                                                                <button type = "button" class = "btn btn-secondary" onclick="funcV()">Kor</button>
+								<button type = "button" class = "btn btn-secondary" onclick="funcVE()">Eng</button>
                                                         </div>
 
                                                 </div>
@@ -70,7 +75,9 @@
                                 <div class="col-3 my-auto">
                                         <div class="card mb-5 mb-md-0">
                                                 <div class="card-body">
-                                                        <h3 class="text-capitalize text-center" id="objMean" style="display:none;">{{obj.mean}}({{obj.word}})</h3>
+                                                        <h3 class="text-capitalize text-center" id="objMean" style="display:none;">{{obj.mean}}</h3>
+                                                        <h3 class="text-center" id ="objEng" style="display:none;">{{obj.word}}</h3>
+
                                                         <hr>
                                                         <ul class="fa-ul" id="objField" style="padding-inline-start:0px;">
                                                                 <img src="/media/{{obj.word}}.jpg" style='height: 100%; width: 100%; object-fit: contain' alter="{{obj.word}}.jpg" />
@@ -78,7 +85,8 @@
 							 <div class = "row btn-group d-flex" role = "group">
                                                                 <button type = "button" class = "btn btn-secondary" id = "oPrev">Prev</button>
                                                                 <button type = "button" class = "btn btn-secondary" id = "oNext">Next</button>
-                                                                <button type = "button" class = "btn btn-secondary" onclick="funcO()">toggle</button>
+                                                                <button type = "button" class = "btn btn-secondary" onclick="funcO()">Kor</button>
+								<button type = "button" class = "btn btn-secondary" onclick="funcOE()">Eng</button>
                                                         </div>
 
                                                 </div>
@@ -98,19 +106,21 @@
 				</div>
 				<div class="col-4 my-auto">
 		                	<div class="card mb-5 mb-md-0">
-                				<div class="card-body">
-				                        <h3 class="text-capitalize text-center" id="subMean" style="display:none;">{{subject.mean}}({{subject.word}})</h3>
-							<hr>
-				                        <ul class="fa-ul" id="subField" style="padding-inline-start:0px;">
-					                        <img src="/media/{{subject.word}}.jpg" style='height: 100%; width: 100%; object-fit: contain' alter="{{subject.word}}.jpg"/>
-							</ul>
-							 <div class = "row btn-group d-flex" role = "group">
+						<div class="card-body">
+                                                        <h3 class="text-capitalize text-center" id="subMean" style="display:none;">{{subject.mean}}</h3>
+                                                        <h3 class="text-center" id ="subEng" style="display:none;">{{subject.word}}</h3>
+                                                        <hr>
+                                                        <ul class="fa-ul" id="subField" style="padding-inline-start:0px;">
+                                                                <img src="/media/{{subject.word}}.jpg" style='height: 100%; width: 100%; object-fit: contain' alter="{{subject.word}}.jpg"/>
+                                                        </ul>
+                                                        <div class = "row btn-group d-flex" role = "group">
                                                                 <button type = "button" class = "btn btn-secondary" id = "sPrev">Prev</button>
                                                                 <button type = "button" class = "btn btn-secondary" id = "sNext">Next</button>
-                                                                <button type = "button" class = "btn btn-secondary" onclick="funcS()">toggle</button>
+                                                                <button type = "button" class = "btn btn-secondary" onclick="funcS()">Kor</button>
+                                                                <button type = "button" class = "btn btn-secondary" onclick="funcSE()">Eng</button>
                                                         </div>
+                                                </div>
 
-						</div>
 			                </div>
 				</div>
 			{% endif %}
@@ -126,19 +136,23 @@
 				</div>
 				<div class="col-4 my-auto">
 					<div class="card mb-5 mb-md-0">
-						<div class="card-body">
-				                        <h3 class="text-capitalize text-center" id="verbMean" style="display:none;">{{verb.mean}}({{verb.word}})</h3>
-				                        <hr>
-				                        <ul class="fa-ul" id="verbField" style="padding-inline-start:0px;">
-					                            <img src="/media/{{verb.word}}.jpg" style='height: 100%; width: 100%; object-fit: contain' alter="{{verb.word}}.jpg" />
-							</ul>
-							 <div class = "row btn-group d-flex" role = "group">
+						 <div class="card-body">
+                                                        <h3 class="text-capitalize text-center" id="verbMean" style="display:none;">{{verb.mean}}</h3>
+                                                        <h3 class="text-center" id ="verbEng" style="display:none;">{{verb.word}}</h3>
+
+                                                        <hr>
+                                                        <ul class="fa-ul" id="verbField" style="padding-inline-start:0px;">
+                                                                    <img src="/media/{{verb.word}}.jpg" style='height: 100%; width: 100%; object-fit: contain' alter="{{verb.word}}.jpg" />
+                                                        </ul>
+                                                         <div class = "row btn-group d-flex" role = "group">
                                                                 <button type = "button" class = "btn btn-secondary" id = "vPrev">Prev</button>
                                                                 <button type = "button" class = "btn btn-secondary" id = "vNext">Next</button>
-                                                                <button type = "button" class = "btn btn-secondary" onclick="funcV()">toggle</button>
+                                                                <button type = "button" class = "btn btn-secondary" onclick="funcV()">Kor</button>
+                                                                <button type = "button" class = "btn btn-secondary" onclick="funcVE()">Eng</button>
                                                         </div>
 
-						</div>
+                                                </div>
+
 					</div>
 				</div>
 			{% endif %}
@@ -154,19 +168,23 @@
 				</div>
 				<div class="col-4 my-auto">
 					<div class="card mb-5 mb-md-0">
-						<div class="card-body">
-							<h3 class="text-capitalize text-center" id="objMean" style="display:none;">{{obj.mean}}({{obj.word}})</h3>
-							<hr>
-							<ul class="fa-ul" id="objField" style="padding-inline-start:0px;">
-								<img src="/media/{{obj.word}}.jpg" style='height: 100%; width: 100%; object-fit: contain' alter="{{obj.word}}.jpg" />
-							</ul>
-							 <div class = "row btn-group d-flex" role = "group">
+						 <div class="card-body">
+                                                        <h3 class="text-capitalize text-center" id="objMean" style="display:none;">{{obj.mean}}</h3>
+                                                        <h3 class="text-center" id ="objEng" style="display:none;">{{obj.word}}</h3>
+
+                                                        <hr>
+                                                        <ul class="fa-ul" id="objField" style="padding-inline-start:0px;">
+                                                                <img src="/media/{{obj.word}}.jpg" style='height: 100%; width: 100%; object-fit: contain' alter="{{obj.word}}.jpg" />
+                                                        </ul>
+                                                         <div class = "row btn-group d-flex" role = "group">
                                                                 <button type = "button" class = "btn btn-secondary" id = "oPrev">Prev</button>
                                                                 <button type = "button" class = "btn btn-secondary" id = "oNext">Next</button>
-                                                                <button type = "button" class = "btn btn-secondary" onclick="funcO()">toggle</button>
+                                                                <button type = "button" class = "btn btn-secondary" onclick="funcO()">Kor</button>
+                                                                <button type = "button" class = "btn btn-secondary" onclick="funcOE()">Eng</button>
                                                         </div>
 
-						</div>
+                                                </div>
+
 					</div>
 				</div>
 			{% endif %}
@@ -195,12 +213,10 @@
                         " style='height: 100%; width: 100%; object-fit: contain'/>";
                     $('#subField').html(imgString);
                     subId -= 1;
-                    if (data.length > 1) {
-                        $('#subMean').html(data[1]+"("+data[0]+")");
-                    } else {
-                        $('#subMean').html();
-                    }
+                        $('#subMean').html(data[1]);
+			$('#subEng').html(data[0]);
 		turnOff("subMean");
+		turnOff("subEng");
                 },
                 error: function () {
                     alert("This word is First one.");
@@ -221,12 +237,10 @@
                         " style='height: 100%; width: 100%; object-fit: contain' />";
                     $('#subField').html(imgString);
                     subId += 1;
-                    if (data.length > 1) {
-                        $('#subMean').html(data[1]+"("+data[0]+")");
-                    } else {
-                        $('#subMean').html('');
-                    }
+                        $('#subMean').html(data[1]);
+			$('#subEng').html(data[0]);
 		turnOff("subMean");
+		turnOff("subEng");
                 },
                 error: function () {
                     alert("This word is Last one.");
@@ -248,12 +262,10 @@
                         " style='height: 100%; width: 100%; object-fit: contain' />";
                     $('#verbField').html(imgString);
                     verbId -= 1;
-                    if (data.length > 1) {
-                        $('#verbMean').html(data[1]+"("+data[0]+")");
-                    } else {
-                        $('#verbMean').html('');
-                    }
+                        $('#verbMean').html(data[1]);
+			$('#verbEng').html(data[0]);
 		turnOff("verbMean");
+		turnOff("verbEng");
                 },
                 error: function () {
                     alert("This word is First one.");
@@ -274,12 +286,10 @@
                         " style='height: 100%; width: 100%; object-fit: contain' />";
                     $('#verbField').html(imgString);
                     verbId += 1;
-                    if (data.length > 1) {
-                        $('#verbMean').html(data[1]+"("+data[0]+")");
-                    } else {
-                        $('#verbMean').html('');
-                    }
+                        $('#verbMean').html(data[1]);
+			$('#verbEng').html(data[0]);
 		turnOff("verbMean");
+		turnOff("verbEng");
                 },
                 error: function () {
                     alert("This word is Last one.");
@@ -300,11 +310,9 @@
                         " style='height: 100%; width: 100%; object-fit: contain' />";
                     $('#objField').html(imgString);
                     objId -= 1;
-                    if (data.length > 1) {
-                        $('#objMean').html(data[1]+"("+data[0]+")");
-                    } else {
-                        $('#objMean').html('');
-                    }
+                        $('#objMean').html(data[1]);
+			$('#objEng').html(data[0]);
+		turnOff("objEng");
 		turnOff("objMean");
                 },
                 error: function () {
@@ -326,11 +334,9 @@
                         " style='height: 100%; width: 100%; object-fit: contain' />";
                     $('#objField').html(imgString);
                     objId += 1;
-                    if (data.length > 1) {
-                        $('#objMean').html(data[1]+"("+data[0]+")");
-                    } else {
-                        $('#objMean').html('');
-                    }
+                        $('#objMean').html(data[1]);
+			$('#objEng').html(data[0]);
+		turnOff("objEng");
 		turnOff("objMean");
                 },
                 error: function () {
@@ -348,9 +354,26 @@
             tmp.style.display = "none";
         }
     }
-
+    function funcSE(){
+	var tmp = document.getElementById("subEng");
+	if(tmp.style.display === "none"){
+		tmp.style.display = "block";
+	}
+	else{
+		tmp.style.display="none";
+	}
+	}
     function funcV() {
         var tmp = document.getElementById("verbMean");
+        if (tmp.style.display === "none") {
+            tmp.style.display = "block";
+        } else {
+            tmp.style.display = "none";
+        }
+    }
+
+	function funcVE() {
+        var tmp = document.getElementById("verbEng");
         if (tmp.style.display === "none") {
             tmp.style.display = "block";
         } else {
@@ -366,6 +389,15 @@
             tmp.style.display = "none";
         }
     }
+function funcOE() {
+        var tmp = document.getElementById("objEng");
+        if (tmp.style.display === "none") {
+            tmp.style.display = "block";
+        } else {
+            tmp.style.display = "none";
+        }
+    }
+
     function turnOff(v){
 	var tmp = document.getElementById(v);
 	if (tmp.style.display === "block")
