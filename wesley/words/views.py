@@ -10,6 +10,9 @@ class IndexView(ListView):
     paginate_by = 10
     ordering = ['teacher']
 
+class WordLV(ListView):
+    model = Word
+    ordering = ['word']
 
 class search(ListView):
     model = WordBook

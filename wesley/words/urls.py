@@ -6,6 +6,7 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('',views.IndexView.as_view(),name='index'),
+    path('word/',views.WordLV.as_view(), name='words'),
     path('search/',views.search.as_view(), name='search'),
     path('wordbook/<int:pk>/',views.detail,name='detail'),
     path('getNextVerb/',views.getNextVerb),

@@ -6,19 +6,17 @@ from django.db.models.functions import Lower
 class TypeAdmin(admin.ModelAdmin):
     pass
 
-@admin.register(models.Theme)
-class ThemeAdmin(admin.ModelAdmin):
-    pass
 
 @admin.register(models.Word)
 class WordAdmin(admin.ModelAdmin):
     list_per_page = 20
-    list_display=['word','mean','theme']
-    list_filter = ('word_type','theme',)
+    list_display=['word','mean']
+    list_filter = ('word_type',)
     search_fields = ['word']
 
     def get_ordering(self,request):
         return [Lower('word')]
+
 @admin.register(models.WordBook)
 class WordBookAdmin(admin.ModelAdmin):
     list_per_page = 20
