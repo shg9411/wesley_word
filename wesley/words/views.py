@@ -7,6 +7,7 @@ from .models import Word, WordBook
 from django.template import RequestContext
 from django.db.models import Q
 from django.urls import reverse_lazy
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 class IndexView(ListView):
     model = WordBook
@@ -17,18 +18,23 @@ class WordLV(ListView):
     model = Word
     ordering = ['word']
 
-class WordDelV(DeleteView):
+class WordDelV(LoginRequiredMixin, DeleteView):
     model = Word
     success_url = reverse_lazy('words')
+    login_url = 'https://www.funvoca.com/admin/login/?next=/'
 
-class WordCV(CreateView):
+
+class WordCV(LoginRequiredMixin, CreateView):
     model = Word
     fields = '__all__'
+    login_url = 'https://www.funvoca.com/admin/login/?next=/'
 
-class WordUV(UpdateView):
+
+class WordUV(LoginRequiredMixin, UpdateView):
     model = Word
     fields = '__all__'
     template_name_suffix = '_update_form'
+    login_url = 'https://www.funvoca.com/admin/login/?next=/'
 
 class WordDV(DetailView):
     model = Word
