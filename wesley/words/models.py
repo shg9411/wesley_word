@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 
 class Type(models.Model):
@@ -7,18 +8,26 @@ class Type(models.Model):
     def __str__(self):
         return self._type
 
+def cp(instance,filename):
+    return '{}.jpg'.format(instance.word)
 
 
 class Word(models.Model):
     word_type = models.ForeignKey(Type, on_delete=models.CASCADE)
     word = models.CharField(max_length = 20)
-    image = models.ImageField(blank=True)
+    image = models.ImageField(blank=True, upload_to=cp)
     mean = models.CharField(max_length = 20, blank = True)
     class Meta:
         ordering = ['word',]
+        constraints = [
+            models.UniqueConstraint(fields = ['word_type','word'],name='unq')
+        ]
 
     def __str__(self):
         return '{},{},{}'.format(self.word,self.mean,self.word_type)
+
+    def get_absolute_url(self):
+        return reverse('word-detail',kwargs={'pk':self.pk})
 
 
 class sList(models.Model):

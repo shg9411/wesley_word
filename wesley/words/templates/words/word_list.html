@@ -6,7 +6,7 @@
 	<div class="card col-2" style="width: 18rem;">
   <img class="card-img-top" src="/media/{{word.word}}.jpg">
   <div class="card-body">
-    <h3 style="text-transform:none;text-align:center;">{{word.word}}</h5>
+    <h3 style="text-align:center;"><a href="{% url 'word-detail' pk=word.id %}">{{word.word}}</a></h3>
   </div>
 </div>
 {% if forloop.counter|divisibleby:"6" %}

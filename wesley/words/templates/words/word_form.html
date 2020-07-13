@@ -1,0 +1,30 @@
+{% extends 'words/base.html' %}
+{% load static %}
+{% block content %}
+<div class="container-fluid">
+	<br>
+	<div class = "row justify-content-center">
+		<div class = "col-4 my-auto">
+				<form method="post" enctype="multipart/form-data">
+					<fieldset>
+						<legend>Word</legend>
+					{% csrf_token %}
+					{{ form.non_field_errors }}
+					{% for field in form %}
+						<div class="form-group">
+							{{ field.errors }}
+							<label for = "{{field.id_for_label}}">{{field.label}}</label>
+							{{field}}
+							{% if field.help_text %}
+							<p class="help">{{ field.help_text|safe }}</p>
+							{% endif %}
+						</div>
+						<br>
+					{% endfor %}
+					<button type="submit" class = "btn btn-primary">Save</button>
+					</fieldset>
+				</form>
+		</div>
+	</div>
+</div>
+{% endblock %}

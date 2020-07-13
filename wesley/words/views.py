@@ -1,9 +1,12 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse, Http404
 from django.views.generic import ListView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.views.generic.detail import DetailView
 from .models import Word, WordBook
 from django.template import RequestContext
 from django.db.models import Q
+from django.urls import reverse_lazy
 
 class IndexView(ListView):
     model = WordBook
@@ -13,6 +16,25 @@ class IndexView(ListView):
 class WordLV(ListView):
     model = Word
     ordering = ['word']
+
+class WordDelV(DeleteView):
+    model = Word
+    success_url = reverse_lazy('words')
+
+class WordCV(CreateView):
+    model = Word
+    fields = '__all__'
+
+class WordUV(UpdateView):
+    model = Word
+    fields = '__all__'
+    template_name_suffix = '_update_form'
+
+class WordDV(DetailView):
+    model = Word
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        return context
 
 class search(ListView):
     model = WordBook

@@ -10,6 +10,13 @@
 		<link rel="icon" href="https://contents.sixshop.com/uploadedFiles/70114/default/image_1534242923467.ico">
 	        <link href="{% static 'words/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
 	        <link rel="stylesheet" href="{% static 'words/css/index.css' %}">
+
+<style type="text/css">
+        h3{
+                text-transform: none;
+        }
+</style>
+
 	{% block head %}
         {% endblock %}
 	</head>
@@ -22,10 +29,15 @@
 			<div class="collapse navbar-collapse" id="navbarColor01">
 				<ul class="navbar-nav mr-auto">
 					<li class="nav-item active">
+						<a class="nav-link" href="/">Home</a>
+					<li class="nav-item active">
 						<a class="nav-link" href="/admin/words/">Admin</a>
 					</li>
 					<li class="nav-item active">
-						<a class="nav-link" href="/">Home</a>
+						<a class="nav-link" href="/word/">Words</a>
+					</li>
+					<li class="nav-item active">
+						<a class="nav-link" href="/word/new/">Add Word</a>
 					</li>
 				</ul>
 				<form class="form-inline my-2 my-lg-0" action="/search/" method="get">
