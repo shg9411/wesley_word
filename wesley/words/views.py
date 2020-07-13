@@ -9,6 +9,7 @@ from django.db.models import Q
 from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin
 
+
 class IndexView(ListView):
     model = WordBook
     paginate_by = 10

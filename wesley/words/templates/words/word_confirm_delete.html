@@ -11,7 +11,8 @@
 					<h4 class="alert-heading">Warning!</h4>
 					<p class="mb-0">Are you sure you want to delete "{{object.word}}, {{object.mean}}"?</p>
 				</div>
-				<input class = "btn btn-danger" type="submit" value="Delete">
+				<input class = "btn btn-outline-danger" type="submit" value="Delete">
+				<a class = "btn btn-outline-warning" href = "{% url 'word-detail' object.id %}">Back</a>
 			</form>
 		</div>
 	</div>
