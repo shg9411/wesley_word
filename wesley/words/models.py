@@ -1,6 +1,8 @@
 from django.db import models
 from django.urls import reverse
 
+from django.conf import settings
+import os
 
 class Type(models.Model):
     _type = models.CharField(max_length = 20)
@@ -9,6 +11,9 @@ class Type(models.Model):
         return self._type
 
 def cp(instance,filename):
+    fullname = os.path.join(settings.MEDIA_ROOT)+'{}.jpg'.format(instance.word).replace(' ','_')
+    if os.path.exists(fullname):
+        os.remove(fullname)
     return '{}.jpg'.format(instance.word)
 
 
