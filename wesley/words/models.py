@@ -29,7 +29,6 @@ class Word(models.Model):
     def get_absolute_url(self):
         return reverse('word-detail',kwargs={'pk':self.pk})
 
-
 class sList(models.Model):
     theme = models.CharField(max_length = 20)
     subject = models.ManyToManyField(Word)
