@@ -8,6 +8,7 @@ from django.template import RequestContext
 from django.db.models import Q
 from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib import messages
 
 
 class IndexView(ListView):
@@ -22,7 +23,12 @@ class WordLV(ListView):
 class WordDelV(LoginRequiredMixin, DeleteView):
     model = Word
     success_url = reverse_lazy('words')
+    success_message = "Delete word successful"
     login_url = 'https://www.funvoca.com/admin/login/?next=/'
+
+    def delete(self, request, *args, **kwargs):
+        messages.success(self.request, self.success_message)
+        return super(WordDelV, self).delete(request, *args, **kwargs)
 
 
 class WordCV(LoginRequiredMixin, CreateView):
