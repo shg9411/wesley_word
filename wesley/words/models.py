@@ -11,10 +11,10 @@ class Type(models.Model):
         return self._type
 
 def cp(instance,filename):
-    fullname = os.path.join(settings.MEDIA_ROOT)+'{}.jpg'.format(instance.word).replace(' ','_')
+    fullname = os.path.join(settings.MEDIA_ROOT)+'{}/{}.jpg'.format(instance.word_type,instance.word).replace(' ','_')
     if os.path.exists(fullname):
         os.remove(fullname)
-    return '{}.jpg'.format(instance.word)
+    return '{}/{}.jpg'.format(instance.word_type,instance.word)
 
 
 class Word(models.Model):
