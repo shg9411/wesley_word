@@ -30,7 +30,8 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
-#    'crispy_forms',
+    'bootstrap4',
+    'crispy_forms',
     'sslserver',    
     'django.contrib.admin',
     'django.contrib.auth',
@@ -136,4 +137,4 @@ CSRF_COOKIE_SECURE = True
 SESSION_COOKIE_AGE = 1200
 SESSION_SAVE_EVERY_REQUEST = True
 
-#CRISPY_TEMPLATE_PACK = 'bootstrap4'
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
