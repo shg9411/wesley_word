@@ -53,6 +53,7 @@ class search(ListView):
     model = WordBook
     context_object_name = 'wordbook_list'
     template_name = 'words/wordbook_list.html'
+    paginate_by = 10
 
     def get_queryset(self):
         q = self.request.GET.get('wb','')

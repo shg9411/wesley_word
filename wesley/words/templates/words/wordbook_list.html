@@ -31,9 +31,15 @@
 				<nav>
 					<ul class="pagination mx-auto justify-content-center">
 						{% if page_obj.has_previous %}                         
+							{% if request.GET.wb %}
+							<li class="page-item">
+                                                                <a class="page-link" href="?wb={{request.GET.wb}}&page={{page_obj.previous_page_number }}">Prev</a>
+                                                        </li>
+							{% else %}
 							<li class="page-item">
 								<a class="page-link" href="?page={{page_obj.previous_page_number }}">Prev</a>
 							</li>
+							{% endif %}
 						{% else %}
 							<li class="page-item disabled">
 								<a class="page-link" href="#">Prev</a>
@@ -43,9 +49,15 @@
 							<a class="page-link" href="#">{{page_obj.number}} of {{page_obj.paginator.num_pages}}</a>
 						</li>
 						{% if page_obj.has_next %}
+							{% if request.GET.wb %}
+	                                                <li class="page-item">
+                                                                <a class="page-link" href="?wb={{request.GET.wb}}&page={{page_obj.next_page_number }}">Next</a>
+                                                        </li>
+							{% else %}
 							<li class="page-item">
 								<a class="page-link" href="?page={{page_obj.next_page_number }}">Next</a>
 							</li>
+							{% endif %}
 						{% else %}
 							<li class="page-item disabled">
 								<a class="page-link" href="#">Next</a>
