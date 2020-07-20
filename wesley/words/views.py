@@ -10,7 +10,6 @@ from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib import messages
 
-
 class IndexView(ListView):
     model = WordBook
     paginate_by = 10
@@ -19,6 +18,7 @@ class IndexView(ListView):
 class WordLV(ListView):
     model = Word
     ordering = ['word']
+
 
 class WordDelV(LoginRequiredMixin, DeleteView):
     model = Word

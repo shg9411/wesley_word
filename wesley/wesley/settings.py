@@ -81,12 +81,6 @@ DATABASES = {
     'default': {
 	'ENGINE':'django.db.backends.sqlite3',
 	'NAME':os.path.join(BASE_DIR,'db.sqlite3'),
-#	'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#        'NAME': 'wesley',
-#	'USER':'postgres',
-#	'PASSWORD':'superadmin',
-#	'HOST':'www.funvoca.com',
-#	'PORT':'',
     }
 }
 
@@ -139,3 +133,4 @@ SESSION_COOKIE_AGE = 1200
 SESSION_SAVE_EVERY_REQUEST = True
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
