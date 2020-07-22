@@ -5,7 +5,7 @@
   - 언어 : Python
   - 프레임워크 : Django, Bootstrap
   - 웹 서버 : Nginx
-  - DB : sqlite3
+  - DB : sqlite3, redis
   - OS : Ubuntu Linux
   - etc. : jQuery, Ajax
 
@@ -13,7 +13,7 @@
 * 개발 기간  
   - 2020년 6월 8일 개발 시작
   - 2020년 6월 16일 배포  
-  - 2020년 6월 16일~ 지속적으로 수정  
+  - 2020년 7월 22일 단어 리스트에 redis 이용  
 
 * 담당 부분
   - 전부👍 
