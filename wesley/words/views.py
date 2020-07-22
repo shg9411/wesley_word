@@ -60,6 +60,20 @@ class WordDV(DetailView):
         context = super().get_context_data(**kwargs)
         return context
 
+class search_word(ListView):
+    model = Word
+    context_object_name = 'word_list'
+    template_name = 'words/word_list.html'
+    paginate_by = 20
+    
+    def get_queryset(self):
+        q = self.request.GET.get('w','')
+        if q=='':
+            word_list = self.model.objects.all().order_by('word')
+        else:
+            word_list = self.model.objects.filter(word__icontains=q).order_by('word')
+        return word_list
+
 class search(ListView):
     model = WordBook
     context_object_name = 'wordbook_list'

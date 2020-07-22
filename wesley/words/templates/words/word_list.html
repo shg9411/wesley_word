@@ -36,12 +36,15 @@
 <nav>
 					<ul class="pagination mx-auto justify-content-center">
 						{% if page_obj.has_previous %}                         
+							{% if request.GET.w %}
 							<li class="page-item">
-								<a class="page-link" href="?page=1">&laquo; first</a>
-							</li>
+                                                                <a class="page-link" href="?w={{request.GET.w}}&page={{page_obj.previous_page_number }}">Prev</a>
+                                                        </li>
+							{% else %}
 							<li class="page-item">
 								<a class="page-link" href="?page={{page_obj.previous_page_number }}">Prev</a>
 							</li>
+							{% endif %}
 						{% else %}
 							<li class="page-item disabled">
 								<a class="page-link" href="#">Prev</a>
@@ -51,13 +54,15 @@
 							<a class="page-link" href="#">{{page_obj.number}} of {{page_obj.paginator.num_pages}}</a>
 						</li>
 						{% if page_obj.has_next %}
+							{% if request.GET.w %}
+	                                                <li class="page-item">
+                                                                <a class="page-link" href="?w={{request.GET.w}}&page={{page_obj.next_page_number }}">Next</a>
+                                                        </li>
+							{% else %}
 							<li class="page-item">
 								<a class="page-link" href="?page={{page_obj.next_page_number }}">Next</a>
 							</li>
-							<li class="page-item">
-								<a class="page-link" href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
-							</li>
-
+							{% endif %}
 						{% else %}
 							<li class="page-item disabled">
 								<a class="page-link" href="#">Next</a>
@@ -65,5 +70,11 @@
 						{% endif %}
 					</ul>
 				</nav>
+<form class="form-inline justify-content-center" action="/searchWord/" method="get">
+					{% if request.GET.w %}
+					<input class="form-control mr-sm-2" type="text" name="w" value="{{request.GET.w}}">				{% else %}
+					<input class="form-control mr-sm-2" type="text" name="w" placeholder="Enter word">{% endif %}
+						<button class="btn btn-secondary my-2 my-sm-0" type="submit" value="Search">Search</button>
+					</form>
 </div>
 {% endblock %}

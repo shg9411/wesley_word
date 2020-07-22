@@ -12,6 +12,7 @@ urlpatterns = [
     path('word/<int:pk>/delete/',views.WordDelV.as_view(),name='word-delete'),
     path('word/<int:pk>/edit/',views.WordUV.as_view(),name='word-edit'),
     path('search/',views.search.as_view(), name='search'),
+    path('searchWord/',views.search_word.as_view(), name='search-word'),
     path('wordbook/<int:pk>/',views.detail,name='detail'),
     path('getNextVerb/',views.getNextVerb),
     path('getNextSub/',views.getNextSub),
