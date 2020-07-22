@@ -1,6 +1,7 @@
 from django.db import models
 from django.urls import reverse
 from django.conf import settings
+from django.core.cache import cache
 import os
 
 class Type(models.Model):
@@ -32,6 +33,10 @@ class Word(models.Model):
 
     def get_absolute_url(self):
         return reverse('word-detail',kwargs={'pk':self.pk})
+
+    def save(self, *args, **kwargs):
+        print("del",cache.delete('words'))
+        super().save(*args,**kwargs)
 
 class sList(models.Model):
     theme = models.CharField(max_length = 20)

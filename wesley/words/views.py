@@ -9,6 +9,7 @@ from django.db.models import Q
 from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib import messages
+from django.core.cache import cache
 
 class IndexView(ListView):
     model = WordBook
@@ -18,6 +19,14 @@ class IndexView(ListView):
 class WordLV(ListView):
     model = Word
     ordering = ['word']
+    
+    def get_queryset(self):
+        words = cache.get('words')
+        if not words:
+            words = Word.objects.all()
+            print("set",cache.set('words',words))
+        return words
+            
 
 
 class WordDelV(LoginRequiredMixin, DeleteView):
@@ -28,6 +37,7 @@ class WordDelV(LoginRequiredMixin, DeleteView):
 
     def delete(self, request, *args, **kwargs):
         messages.success(self.request, self.success_message)
+        print("del",cache.delete('words'))
         return super(WordDelV, self).delete(request, *args, **kwargs)
 
 

@@ -134,3 +134,12 @@ SESSION_SAVE_EVERY_REQUEST = True
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
+CACHES = {
+    'default': {
+        'BACKEND': 'django_redis.cache.RedisCache',
+        'LOCATION': 'redis://139.162.116.50:6379',
+        'OPTIONS': {
+            "CLIENT_CLASS": "django_redis.client.DefaultClient",
+        }
+    }
+}
