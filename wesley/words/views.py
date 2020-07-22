@@ -18,6 +18,7 @@ class IndexView(ListView):
 
 class WordLV(ListView):
     model = Word
+    paginate_by = 20
     ordering = ['word']
     
     def get_queryset(self):
