@@ -28,6 +28,10 @@ class Word(models.Model):
             models.UniqueConstraint(fields = ['word_type','word'],name='unq')
         ]
 
+    @property
+    def type(self):
+        return self.word_type._type
+
     def __str__(self):
         return '{},{},{}'.format(self.word,self.mean,self.word_type)
 
