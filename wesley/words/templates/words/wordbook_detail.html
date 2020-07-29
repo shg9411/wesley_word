@@ -210,8 +210,8 @@
                 },
                 success: function (data) {
                     data = data.split(',');
-                    imgString = "<img src ='/media/"+data[2]+"/" + data[0].replace(' ','_') +".jpg'"+
-                        " style='height: 100%; width: 100%; object-fit: contain' draggable="false"/>";
+                    imgString = "<img draggable='false' src ='/media/"+data[2]+"/" + data[0].replace(' ','_') +".jpg'"+
+                        " style='height: 100%; width: 100%; object-fit: contain'/>";
                     $('#subField').html(imgString);
                     subId -= 1;
                         $('#subMean').html(data[1]);
@@ -234,8 +234,8 @@
                 },
                 success: function (data) {
                     data = data.split(',');
-                    imgString = "<img src ='/media/"+data[2]+"/" + data[0].replace(' ','_') +".jpg'"+
-                        " style='height: 100%; width: 100%; object-fit: contain' draggable="false"/>";
+                    imgString = "<img draggable='false' src ='/media/"+data[2]+"/" + data[0].replace(' ','_') +".jpg'"+
+                        " style='height: 100%; width: 100%; object-fit: contain'/>";
                     $('#subField').html(imgString);
                     subId += 1;
                         $('#subMean').html(data[1]);
@@ -259,8 +259,8 @@
                 },
                 success: function (data) {
                     data = data.split(',');
-                    imgString = "<img src ='/media/"+data[2]+"/" + data[0].replace(' ','_') +".jpg'"+
-                        " style='height: 100%; width: 100%; object-fit: contain' draggable="false"/>";
+                    imgString = "<img draggable='false' src ='/media/"+data[2]+"/" + data[0].replace(' ','_') +".jpg'"+
+                        " style='height: 100%; width: 100%; object-fit: contain'/>";
                     $('#verbField').html(imgString);
                     verbId -= 1;
                         $('#verbMean').html(data[1]);
@@ -283,8 +283,8 @@
                 },
                 success: function (data) {
                     data = data.split(',');
-                    imgString = "<img src ='/media/"+data[2]+"/" + data[0].replace(' ','_') +".jpg'"+
-                        " style='height: 100%; width: 100%; object-fit: contain' draggable="false"/>";
+                    imgString = "<img draggable='false' src ='/media/"+data[2]+"/" + data[0].replace(' ','_') +".jpg'"+
+                        " style='height: 100%; width: 100%; object-fit: contain' />";
                     $('#verbField').html(imgString);
                     verbId += 1;
                         $('#verbMean').html(data[1]);
@@ -307,8 +307,8 @@
                 },
                 success: function (data) {
                     data = data.split(',');
-                    imgString = "<img src ='/media/"+data[2]+"/" + data[0].replace(' ','_') +".jpg'"+
-                        " style='height: 100%; width: 100%; object-fit: contain' draggable="false"/>";
+                    imgString = "<img draggable='false' src ='/media/"+data[2]+"/" + data[0].replace(' ','_') +".jpg'"+
+                        " style='height: 100%; width: 100%; object-fit: contain' />";
                     $('#objField').html(imgString);
                     objId -= 1;
                         $('#objMean').html(data[1]);
@@ -331,8 +331,8 @@
                 },
                 success: function (data) {
                     data = data.split(',');
-                    imgString = "<img src ='/media/"+data[2]+"/" + data[0].replace(' ','_') +".jpg'"+
-                        " style='height: 100%; width: 100%; object-fit: contain' draggable="false"/>";
+                    imgString = "<img draggable='false' src ='/media/"+data[2]+"/" + data[0].replace(' ','_') +".jpg'"+
+                        " style='height: 100%; width: 100%; object-fit: contain'/>";
                     $('#objField').html(imgString);
                     objId += 1;
                         $('#objMean').html(data[1]);
