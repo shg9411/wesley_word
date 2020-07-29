@@ -25,9 +25,9 @@
 			{% for word in word_list %}
 			<tr>
 				<th scope="row">{{forloop.counter0|add:page_obj.start_index}}</th>
-				<td scope="row"><a href="{% url 'word-detail' pk=word.id %}">{{word.word}}</a></th>
-				<td scope="row">{{word.mean}}</th>
-				<td scope="row">{{word.word_type}}</th>
+				<td scope="col"><a href="{% url 'word-detail' pk=word.id %}">{{word.word}}</a></td>
+				<td scope="col">{{word.mean}}</td>
+				<td scope="col">{{word.word_type}}</td>
 			</tr>
 			{% endfor %}
 		</tbody>
