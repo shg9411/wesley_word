@@ -9,12 +9,7 @@
 				<div class="col-6">
 					<div class="card">
 						<div class="card-body">
-							<h5 class="text-capitalize"><a href="{% url 'detail' wordbook.id %}">{{wordbook}}</a></h5>
-							<p class="card-text">{% if wordbook.description %}
-										{{wordbook.description}}
-										{% else %}
-										<br>{% endif %}
-							</p>
+							<h5 class="text-capitalize"><br/><a href="{% url 'detail' wordbook.id %}">{{wordbook}}</a><br/></h5>
 						</div>
 					</div>
 				</div>

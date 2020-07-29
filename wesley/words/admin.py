@@ -20,20 +20,19 @@ class WordAdmin(admin.ModelAdmin):
 @admin.register(models.WordBook)
 class WordBookAdmin(admin.ModelAdmin):
     list_per_page = 20
-    list_display = ['teacher','_class','title','description']
+    list_display = ['teacher','_class','title']
     search_fields = ['title']
     ordering = ('title',)
 
     fieldsets = [
         ('Title', {'fields':['teacher','_class','title']}),
         ('List',{'fields':['subjects','verbs','objs']}),
-        ('Description',{'fields':['description']}),
     ]
 
 @admin.register(models.sList)
 class sListAdmin(admin.ModelAdmin):
     list_per_page = 20
-    list_display = ['theme','word_count']
+    list_display = ['word_count']
     filter_horizontal = ["subject"]
 
     def word_count(self,obj):
@@ -42,7 +41,7 @@ class sListAdmin(admin.ModelAdmin):
 @admin.register(models.vList)
 class vListAdmin(admin.ModelAdmin):
     list_per_page = 20
-    list_display = ['theme','word_count']
+    list_display = ['word_count']
     filter_horizontal = ["verb"]
 
     def word_count(self,obj):
@@ -51,7 +50,8 @@ class vListAdmin(admin.ModelAdmin):
 @admin.register(models.oList)
 class oListAdmin(admin.ModelAdmin):
     list_per_page = 20
-    list_display = ['theme','word_count']
+    list_display = ['word_count']
     filter_horizontal = ["obj"]
+    
     def word_count(self,obj):
         return models.Word.objects.filter(olist=obj).count()

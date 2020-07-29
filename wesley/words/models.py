@@ -43,26 +43,13 @@ class Word(models.Model):
         super().save(*args,**kwargs)
 
 class sList(models.Model):
-    theme = models.CharField(max_length = 20)
     subject = models.ManyToManyField(Word)
-    
-    def __str__(self):
-        return self.theme
 
 class vList(models.Model):
-    theme = models.CharField(max_length = 20)
     verb = models.ManyToManyField(Word)
 
-    def __str__(self):
-        return self.theme
-
-
 class oList(models.Model):
-    theme = models.CharField(max_length = 20)
     obj = models.ManyToManyField(Word)
-
-    def __str__(self):
-        return self.theme
 
 class WordBook(models.Model):
     teacher = models.CharField(max_length = 20)
@@ -71,7 +58,6 @@ class WordBook(models.Model):
     subjects = models.ForeignKey(sList,null=True,blank = True, on_delete=models.CASCADE)
     verbs = models.ForeignKey(vList,null=True,blank = True, on_delete=models.CASCADE)
     objs = models.ForeignKey(oList,null=True,blank = True, on_delete=models.CASCADE)
-    description = models.CharField(max_length = 100, blank = True)
 
     def __str__(self):
         return "{} {} {}".format(self.teacher,self._class,self.title)
