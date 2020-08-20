@@ -6,6 +6,9 @@ from django.db.models.functions import Lower
 class TypeAdmin(admin.ModelAdmin):
     pass
 
+@admin.register(models.zoom)
+class ZoomAdmin(admin.ModelAdmin):
+    pass
 
 @admin.register(models.Word)
 class WordAdmin(admin.ModelAdmin):

@@ -20,4 +20,5 @@ urlpatterns = [
     path('getPrevVerb/',views.getPrevVerb),
     path('getPrevSub/',views.getPrevSub),
     path('getPrevObj/',views.getPrevObj),
+    path('zoom/',views.ZoomView.as_view(), name = 'zoom'),
 ]+ static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

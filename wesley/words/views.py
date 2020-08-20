@@ -3,7 +3,7 @@ from django.http import HttpResponse, Http404
 from django.views.generic import ListView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic.detail import DetailView
-from .models import Word, WordBook
+from .models import Word, WordBook, zoom
 from django.template import RequestContext
 from django.db.models import Q
 from django.urls import reverse_lazy
@@ -15,6 +15,10 @@ class IndexView(ListView):
     model = WordBook
     paginate_by = 10
     ordering = ['teacher']
+
+class ZoomView(ListView):
+    model = zoom
+    ordering = ['cLass']
 
 class WordLV(ListView):
     model = Word
