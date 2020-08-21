@@ -17,8 +17,9 @@ class IndexView(ListView):
     ordering = ['teacher']
 
 class ZoomView(ListView):
-    model = zoom
-    ordering = ['cLass']
+    template_name = 'words/zoom_list.html'
+    context_object_name = 'object_list'
+    queryset = zoom.objects.filter(see=True).order_by('cLass')
 
 class WordLV(ListView):
     model = Word

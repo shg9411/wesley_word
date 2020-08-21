@@ -67,6 +67,7 @@ class zoom(models.Model):
     cLass = models.CharField(max_length = 10)
     tEacher = models.CharField(max_length = 50)
     lInk = models.CharField(max_length = 100)
+    see = models.BooleanField(default = True)
     
     def __str__(self):
         return self.cLass
