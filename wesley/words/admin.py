@@ -8,6 +8,8 @@ class TypeAdmin(admin.ModelAdmin):
 
 @admin.register(models.zoom)
 class ZoomAdmin(admin.ModelAdmin):
+    list_per_page = 20
+    search_fields = ['zoom']
     pass
 
 @admin.register(models.Word)
