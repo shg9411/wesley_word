@@ -7,7 +7,8 @@
   - 웹 서버 : Nginx
   - DB : sqlite3, redis
   - OS : Ubuntu Linux
-  - etc. : jQuery, Ajax
+  - etc. : jQuery, Ajax  
+  - hosting : Linode  
 
 ## Etc  
   - 2020년 6월 8일 개발 시작
